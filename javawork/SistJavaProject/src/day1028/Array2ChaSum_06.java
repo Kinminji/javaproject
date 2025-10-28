@@ -1,3 +1,4 @@
+package day1028;
 
 public class Array2ChaSum_06 {
 public static void main(String[] args) {

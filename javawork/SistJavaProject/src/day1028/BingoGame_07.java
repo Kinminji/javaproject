@@ -1,3 +1,4 @@
+package day1028;
 import java.util.Scanner;
 
 public class BingoGame_07 {

@@ -1,3 +1,4 @@
+package day1028;
 
 public class Array2Cha_05 {
 
