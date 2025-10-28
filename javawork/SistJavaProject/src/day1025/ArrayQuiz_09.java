@@ -20,13 +20,13 @@ public class ArrayQuiz_09 {
 			System.out.println("메뉴명을 입력하세요.");
 			me=sc.nextLine();
 			
-			if(me=="q"|| me=="Q")
+			if(me.equalsIgnoreCase("q"))
 				break;
 			
 			flag=false;
 			
 			for(int i=0;i<menu.length;i++) {
-				if(me==menu[i]) {
+				if(me.equals(menu[i])) {
 					flag=true;
 					System.out.println(i+1+"번째에 메뉴가 있습니다.");	
 				}
