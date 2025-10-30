@@ -13,7 +13,7 @@ class quiz{
 	private String gender;
 	private String addr;
 	
-	static String ban="JAVA 4class";
+	static String ban;
 	static int cnt=0;
 	
 	
@@ -39,11 +39,37 @@ class quiz{
 		return addr;
 	}
 	
-	public void wri() {
+	public void wri() {	
+		cnt++;
+		System.out.println("**학생 "+cnt+" 정보");
 		System.out.println("학생이름: "+stuName);
 		System.out.println("클래스: "+quiz.ban);
 		System.out.println("성별: "+gender);
 		System.out.println("지역: "+addr);
+		System.out.println("=========================");
+	}
+	
+	
+	//선생님
+	
+	//멤버 메서드 한번에 set메서드로 만들기_수정용
+	public void setStuDate(String name, String gender, String addr)
+	{
+		stuName=name;
+		this.gender=gender;
+		this.addr=addr;
+	}
+	
+	//출력용 데이터도 한번에 만들기
+	public void getStuDate()
+	{
+		cnt++;
+		System.out.println("**학생 "+cnt+" 정보**");
+		System.out.println("이름: "+stuName);
+		System.out.println("쌍용 소속학급: "+ban);
+		System.out.println("성별: "+this.gender);
+		System.out.println("주소: "+addr);
+		System.out.println("================================");
 	}
 	
 	
@@ -56,21 +82,29 @@ public class QuizTest {
 		
 		
 		quiz my=new quiz();
+
+		quiz.ban="JAVA 4class";
 		
 		my.setstuName("김민지");
 		my.setgender("여성");
 		my.setaddr("서울 성동구");
 		my.wri();
 		
-		System.out.println("==========================");
+
 		
 		my.setstuName("엄혜지");
 		my.setgender("여성");
 		my.setaddr("경기도 남양주시");
 		my.wri();
 		
+		//선생님 
+		quiz my3=new quiz();
+		my3.setStuDate("김민지", "여자", "서울시성동구");
+		my3.getStuDate();
 		
-		
+		quiz my2=new quiz();
+		my2.setStuDate("강서빈", "남자", "서울시 강남구");
+		my2.getStuDate();
 
 		
 		
