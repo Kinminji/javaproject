@@ -1,5 +1,6 @@
 package day1031;
 
+//super 클래스 (공동적으로 대응할수 있는것)
 class Shop{
 	
 	private String sangpum;
@@ -46,7 +47,7 @@ class Mymall extends Shop{
 	//명시적
 	
 	public Mymall(String s, int su, int price) {
-		super(s, su);
+		super(s, su); //super 무조건 맨윗줄
 		this.price=price;
 	}
 	
@@ -54,7 +55,7 @@ class Mymall extends Shop{
 	//오버라이딩
 	@Override
 	public void writeShop() {
-		// TODO Auto-generated method stub
+		// super 위치 상관 없음
 		super.writeShop();
 		System.out.println("가격: "+price);
 	}
@@ -73,7 +74,6 @@ public class Ex4Inheri {
 		System.out.println();
 		
 		//명시적 생성자로 추가 후 메서드 출력 
-		
 		Mymall m1=new Mymall("오렌지", 20, 40000);
 		m1.writeShop();
 

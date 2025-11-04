@@ -23,7 +23,7 @@ public class SwingBasic extends JFrame{
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //프레임 닫기
 		this.setBounds(200, 100, 500, 300); //int x int y int weidth int high (크기 조정)
-		cp.setBackground(new Color(102,153,102)); //background 색 
+		this.getContentPane().setBackground(new Color(255,255,200)); //background 색 
 		//this.setbackground로 하면 contentpane 때문에 겉에 pane이 있기에 색상이 안보임
 		//cp.로 바꿔서 색을 입혀줘야 함
 		
