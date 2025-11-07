@@ -72,9 +72,9 @@ public class Ex5QuizWriteRead {
 		try {
 			fr=new FileReader(FILENAME);
 			br=new BufferedReader(fr);
+			int n=0;
 			
 			while(true) {
-				int n=0;
 				String sang=br.readLine();
 				
 				if(sang==null) {
@@ -87,8 +87,9 @@ public class Ex5QuizWriteRead {
 				int price=dan*su;
 				int dcprice=getPersent(price, su);
 				int netPrice=price-dcprice;
+				n++;
 				
-				System.out.println(++n+sang+"\t"+su+"\t"+price+"\t"+dcprice+"\t"+netPrice);
+				System.out.println(n+"\t"+d+"\t"+su+"\t"+dan+"\t"+dcprice+"\t"+netPrice);
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -115,7 +116,7 @@ public class Ex5QuizWriteRead {
 		int dc=0;
 		
 		if(su>=10) {
-			dc=price*1/10;
+			dc=price/10;
 		}
 		
 		return dc;
@@ -134,14 +135,17 @@ public class Ex5QuizWriteRead {
 			case 1:
 				System.out.println("상품 정보 입력");
 				ex.sangpumAdd();
+				break;
 			case 2:
 				System.out.println("상품 정보 출력");
 				ex.sangpumWrite();
+				break;
 			case 9:
 				System.out.println("종료");
 				System.exit(0);
 			default:
 				System.out.println("다시입력해주세요.");
+				break;
 			}
 		}
 
