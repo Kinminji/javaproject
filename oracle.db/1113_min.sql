@@ -108,7 +108,6 @@ insert into c_sawon values('김원필', '대리', 'ccc@lotte.com', '010-0428-159
 --조인 이용하셔 출력
 select company, addr, call, name, position, email, hp from company, c_sawon where company.company_id=c_sawon.c_sawon_id;
 
-
 --3.데이터 삭제시 정규화된 테이블의 경우 문제발생 casecade연산자를 이용해서 삭제
 
 
