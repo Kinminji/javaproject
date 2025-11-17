@@ -1,0 +1,1 @@
+create table MyCarrot(cnum number(5) primary key, csangpum varchar2(20), cprice number(30), cscore number(30), caddr varchar2(50));
