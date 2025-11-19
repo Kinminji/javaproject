@@ -30,12 +30,13 @@ public class MyCarrot {
 			rs=stmt.executeQuery(sql);
 			
 			System.out.println("*** 당근 거래 물품 내역 ***");
-			System.out.println("회원번호 \t 판매상품 \t 가격 \t 좋아요 \t 지역");
-			System.out.println("=============================================");
+			System.out.printf("%-5s %-15s %-10s %-8s %-20s\n",
+			        "회원번호", "판매상품", "가격", "좋아요", "지역");
+			System.out.println("===============================================================");
 			
 			while(rs.next())
 			{
-				System.out.println(rs.getInt("cnum")+"\t"+rs.getString("csangpum")+"\t"+rs.getInt("cprice")+"\t"+rs.getInt("cscore")+"\t"+rs.getString("caddr"));
+				System.out.printf("%-5s %-15s %-10s %-8s %-20s\n",rs.getInt("cnum"),rs.getString("csangpum"),rs.getInt("cprice"),rs.getInt("cscore"),rs.getString("caddr"));
 			}
 			
 		} catch (SQLException e) {
