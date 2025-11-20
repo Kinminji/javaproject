@@ -1,6 +1,7 @@
 package day1119;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -59,7 +60,7 @@ public class ConnectMyClub {
 			
 			System.out.println("*** 회원정보 ***");
 			System.out.println("번호 1.회원명     2.주소 \t 3.직업 \t    4.핸드폰 \t    가입일자");
-			System.out.println("=====================================================================");
+			System.out.println("================================================================");
 			
 			while(rs.next())
 			{
@@ -140,6 +141,40 @@ public class ConnectMyClub {
 
 	}
 	
+	public void getSearch()
+	{
+		Connection conn=db.getDbConnect();
+		Statement stmt=null;
+		ResultSet rs=null;
+		
+		System.out.println("회원명을 검색해주세요.(일부도 가능)");
+		String s=sc.nextLine();
+		
+		String sql="select * from myclub where cname like'%"+s+"%'";
+		System.out.println(sql);
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			
+			System.out.println("*** 회원정보 ***");
+			System.out.println("번호 1.회원명     2.주소 \t 3.직업 \t    4.핸드폰 \t    가입일자");
+			System.out.println("================================================================");
+			
+			while(rs.next())
+			{
+				System.out.printf("%2s %5s %10s %7s %15s %12s\n",rs.getInt("cno"),rs.getString("cname"),rs.getString("caddr"),rs.getString("cjob"),rs.getString("chp"),rs.getDate("gaipday"));
+			}
+			
+			System.out.println("검색이 완료되었습니다.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, stmt, conn);
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
@@ -150,8 +185,8 @@ public class ConnectMyClub {
 		int num;
 		
 		while(true) {
-			System.out.println("1.회원가입 \t 2.회원정보 \t 3.회원삭제 \t 4.회원정보수정 \t 5.종료");
-			System.out.println("==========================================================================");
+			System.out.println("1.회원가입 \t 2.회원정보 \t 3.회원삭제 \t 4.회원정보수정 \t 5.회원검색 \t 9.종료");
+			System.out.println("=======================================================================================");
 			
 			num=Integer.parseInt(sc.nextLine());
 			
@@ -163,7 +198,9 @@ public class ConnectMyClub {
 				club.getDelete();
 			else if(num==4)
 				club.getUpdate();
-			else if(num==5) {
+			else if(num==5)
+				club.getSearch();
+			else if(num==9) {
 				System.out.println("종료합니다.");
 				break;
 			}
