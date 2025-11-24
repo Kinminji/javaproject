@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Pen+Script&family=Playwrite+US+Trad+Guides&display=swap');
+
+button.btn1
+{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 5px 5px 5px gray;
+    margin-right: 20px;
+    cursor: pointer;
+}
+button.pink{
+    background-color: pink;
+    border-radius: 10px;
+    border: palevioletred solid 3px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: Playwrite US Trad Guides;
+}
+button.green{
+    background-color: #666600;
+    border: #669900 solid 3px;
+    color: white;
+    font-weight: 400;
+    font-size: 25px;
+    font-family: Dongle;
+}
+button.black{
+    background-color: #444444;
+    color: wheat;
+    font-weight: 400;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: Nanum Pen Script;
+}
+button.btn1:hover{
+    background-color: red;
+    border: red solid 1px;
+    color: black;
+}

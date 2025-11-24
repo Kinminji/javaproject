@@ -5,34 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            background-image: url(../image/20629850.jpg);
-            background-size: 1100px;
-            background-repeat: no-repeat;
-            background-position: center;
-            text-align: center;
+        .top-box
+        {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 20px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 1px 0;
         }
-        p {
-            background-color: rgb(255, 255, 255,0.5);
-            display: block;
-            text-align: center;
-            width: fit-content;  
-            margin: 20px auto;
-            padding: 10px 15px;
-            border-radius: 10px;
+        .album h1
+        {
+            font-weight: 400;
+            margin-bottom: 5px;
         }
-        h1{
-            color: white;
-            font-size: 50pt;
+        .album h3
+        {
+            font-weight: 400;
+            color: green;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .album h5
+        {
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .album-info
+        {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+        .gasa
+        {
+            border-bottom: 1px solid #ccc;
+            font-size: 28px;
+            padding-top: 20px;
+
+        }
+        p
+        {
+         color: rgb(66, 66, 66);
+         font-size: 14px;
+         line-height: 1.8;
         }
     </style>
 </head>
 <body>
 
-<h1>HAPPY</h1> <br>
-<h3 align="right">Day6</h3> <br>
+<div class="top-box">
+<img src="../image/20629850.jpg" alt="데이식스 앨범 커버" width="250">
 
+<div class="album">
+<h1>HAPPY</h1>
+<h3>Day6 (데이식스)</h3>
+<div class="album-info">
+<h5>앨범 <br>
+발매일 <br>
+장르 <br>
+FLAC </h5>
 
+<h5>
+    Fourever <br>
+    2024.03.18 <br>
+    록/메탈 <br>
+    Flac16bit
+</h5>
+
+</div>
+</div>
+</div>
+
+<div class="gasa">
+    가사
+</div>
 <p> 
 그런 날이 있을까요? <br>
 마냥 좋은 그런 날이요 <br>

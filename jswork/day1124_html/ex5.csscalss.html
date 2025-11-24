@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css영역  class: .  id: # */
+        .happy
+        {
+            /* 모든 happy class 다 선택됨 */
+            color: blueviolet;
+            font-size: 30px;
+        }
+
+        b.nice
+        {
+            /* b태그에서만 적용 */
+            text-decoration: underline;
+        }
+        img
+        {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        img.imga
+        {
+            margin-top: 25px;
+        }
+        img.imgb
+        {
+            border: 10px groove red;
+            margin-left: 25px;
+        }
+        /* inplo안의 이미지 가로 정렬 >바로아래 자식, 한칸 뗌 하위자손 */
+        div.inplo>figure
+        {
+            float: left;
+        }
+        div.inplo figcaption
+        {
+            text-align: center;
+        }
+        div.fimg
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            /* row: 가로방향(왼쪽정렬)  row-reverse:거꾸로정렬(오른쪽정렬) column:세로방향 */
+        }
+        div.fimg img
+        {
+            border: 5px solid green;
+            box-shadow: 5px 5px 5px gray;
+            border-radius: 20px 50px 80px 20px;
+        }
+    </style>
+</head>
+<body>
+    <font size="5">font tag</font> <!--br 태그 안먹음-->
+    <span style="color: brown; font-size: 2em;">span tag</span> <br>
+    <span style="border: 3px solid green;;">안녕하세요.</span> <!--span 태그는 width, heigh 안먹음-->
+    <div class="happy">div tag</div>
+    <div class="happy nice">div tag#2</div>
+    <b class="happy nice">b tag 굵게 속성 포함 태그</b>
+
+    <br>
+
+    <img src="../image/연예인사진/17.jpg" alt="신민아 없음" title="12월20일 축 결혼" class="imga">
+    <br>
+    <img src="../image/food/4.jpg" alt="카레" title="카레" class="imgb">
+
+    <hr>
+    <div class="inplo">
+        <figure>
+            <img src="../image/연예인사진/14.jpg">
+            <figcaption><b>유승호</b></figcaption>
+        </figure>
+        <figure>
+            <img src="../image/연예인사진/13.jpg">
+            <figcaption><b>차은상</b></figcaption>
+        </figure>
+        <figure>
+            <img src="../image/연예인사진/12.jpg">
+            <figcaption><b>박보영</b></figcaption>
+        </figure>
+    </div>
+
+    <hr style="clear: both;">
+
+    <div class="fimg">
+        <figure>
+            <img src="../image/연예인사진/1.jpg">
+            <figcaption><b>여진구</b></figcaption>
+        </figure>
+        <figure>
+            <img src="../image/연예인사진/2.jpg">
+            <figcaption><b>김우빈</b></figcaption>
+        </figure>
+        <figure>
+            <img src="../image/연예인사진/3.jpg">
+            <figcaption><b>김영광</b></figcaption>
+        </figure>
+    </div>
+</body>
+</html>

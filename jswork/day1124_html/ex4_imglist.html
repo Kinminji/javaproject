@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li
+        {
+            list-style: none;
+        }
+        body
+        {
+            font-family: '나눔고딕';
+        }
+        ul
+        {
+            float: left; /*가로방향 정렬*/
+        }
+        hr
+        {
+            clear: both; /*가로방향 해제*/
+        }
+
+        /*나라별 음식_버튼*/
+        ul.country li
+        {
+            float: left;
+            width: 150px;
+            height: 60px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 55px; /*세로 가운데_높이랑 같은 수치*/
+            margin-right: 20px;
+            background-color: #8fdcff69;
+            border-radius: 20px;
+            box-shadow: 3px 3px 5px #aaa;
+        }
+        
+        /*스타일 시트를 활용한 간단한 이벤트*/
+        ul.country li:hover
+        {
+            background-color: #1c7dcc;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>나라별 치즈종류</h1>
+    <ul>
+        <li><img src="../image/html/cheese1.png" alt="치즈"></li>
+        <li><img src="../image/html/flag01.jpg" alt="프랑스">프랑스</li>
+        <li>브리치즈, 까망베르, 꽁떼</li>
+    </ul>
+     <ul>
+        <li><img src="../image/html/cheese2.png" alt="치즈2"></li>
+        <li><img src="../image/html/flag02.jpg" alt="영국">영국</li>
+        <li>하드치즈, 블루치즈</li>
+    </ul>
+     <ul>
+        <li><img src="../image/html/cheese3.png" alt="치즈"></li>
+        <li><img src="../image/html/flag03.jpg" alt="미국">미국</li>
+        <li>에멘탈치즈, 체다치즈</li>
+    </ul>
+     <ul>
+        <li><img src="../image/html/cheese4.png" alt="치즈"></li>
+        <li><img src="../image/html/flag04.jpg" alt="이탈리아">이탈리아</li>
+        <li>안티코 그라나, 모짜렐라</li>
+    </ul>
+
+    <hr>
+    <h2>나라별 음식_ul을 이용한 간단한 메뉴 만들기</h2> <br>
+    <ul class="country">
+        <li>일본</li>
+        <li>대만</li>
+        <li>홍콩</li>
+        <li>이탈리아</li>
+        <li>프랑스<img src="../image/html/flag01.jpg" alt="프랑스 국기" width="18px" style="margin-left: 2px;"></li>
+    </ul>
+</body>
+</html>
