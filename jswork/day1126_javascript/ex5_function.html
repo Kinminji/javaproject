@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("안녕하세요. 성진님 자바스크립트 어때요?<br>");
+        document.write("안녕하세요. 영현님 자바스크립트 어때요?<br>");
+        document.write("안녕하세요. 도운님 자바스크립트 어때요?<br>");
+        //중복되는 부분을 함수로 포장한 후 
+        //중복되지 않는 부분을 파라메타로 만든 후 함수를 호출할 때 값을 넘긴다.
+
+        function showName(name)
+        {
+            document.write("안녕하세요. "+name+"님 자바스크립트 어때요?<br>");
+        }
+        showName("성진");
+        showName("영현");
+        showName("도운");
+
+        document.write("==============================================<br>");
+
+
+        //안녕하세요.
+        //성진님의 나이는 26세 입니다.
+
+        //안녕하세요.
+        //영현님의 나이는 25세 입니다.
+
+        function hello(name, age){
+            document.write("안녕하세요.<br>"+name+"님의 나이는 "+age+"세 입니다.<br>");
+        }
+        hello("성진","33");
+        hello("영현","33");
+        hello("도운","31");
+
+         document.write("==============================================<br>");
+
+        //이름:성진
+        //키:178cm
+        //몸무게:86kg
+
+        function info(name, hight, weight)
+        {
+            document.write("이름:"+name+"<br> 키:"+hight+"cm <br> 몸무게:"+weight+"kg <br>");
+        }
+        info("성진","178","86");
+        info("영현","180","78");
+    </script>
+</body>
+</html>

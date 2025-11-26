@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var rightId="min";
+        var rightPw="0000";
+
+        function login(id,pw)
+        {
+            if(id==rightId)
+        {
+            if(pw==rightPw)
+        {
+            document.write(id+"님이 로그인 하셨습니다.<br>")
+        }
+        else {
+            alert("비밀번호를 다시 한번 확인해주세요.");
+        }
+        } else {
+            alert("아이디를 다시 한번 확인해주세요.");
+        }
+        }
+
+        var userId=prompt("아이디를 입력하세요.","id");
+        var userPw=prompt("비밀번호를 입력하세요","****");
+
+        login(userId, userPw);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #222;
+    height: 100%;
+    margin: 0
+}
+#container{
+    position: absolute;
+    width: 900px;
+    height: 100%;
+    background-color: #fff;
+    left: 25%;
+}
+aside{
+    float: left;
+    width: 300px;
+    height: 100%;
+    padding: 50px 30px;
+    background-color: #eee;
+}
+
+#detail, #informaition{
+    font-size: 13px;
+    font-weight: 350;
+    line-height: 0.9;
+}
+
+#main{
+    float: left;
+    width: 600px;
+    height: 100%;
+    padding: 30px;
+}

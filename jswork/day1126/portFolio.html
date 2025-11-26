@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/port.css">
+    <style>
+        table{
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: #eee;
+        }
+        th,td {
+            border: 1px solid gray;
+            font-size: 13px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        tr{
+            height: 20px;
+        }
+        a:link{
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover{
+            color: aqua;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- 사이드바 -->
+         <aside>
+            <div id="namecard">
+                <img src="../image/연예인사진/2.jpg" alt="" style="width: 150px; border-radius: 100px;">
+                <h3>Woobin Kim</h3>
+                <p>Model</p>
+            </div>
+            <div id="detail">
+                <p>Seoul, Korea</p>
+                <p><link rel="stylesheet" href="https://www.naver.com" class="a">naver</p>
+                <p>email: woobin0311@gmail.com</p>
+            </div>
+            <div id="informaition">
+                <p>tall: 183.6cm</p>
+                <p>weight: 78kg</p>
+                <p>shoose: 280cm</p>
+            </div>
+         </aside>
+         <div id="main">
+            <!-- 자기 소개글 -->
+             <section>
+                <h3>Introduce</h3>
+                <p>Frontend Wedtec.</p>
+                <p><mark>I’m studying frontend web technologies and I’m also interested in design.
+                    I’m currently working on development and taking a break at the moment</mark></p>
+             </section>
+
+             <!-- 경력 -->
+             <section>
+                <h3>Experience</h3>
+                <ul>
+                    <li>Frontend tec.
+                        <ul>
+                            <li>Html</li>
+                            <li>Javascript</li>
+                            <li>Css</li>
+                            <li>Jquery</li>
+                        </ul>
+                    </li>
+                    <li>Design tec.
+                        <ul>
+                            <li>Photoshop</li>
+                            <li>Illustlater</li>
+                            <li>Figma</li>
+                        </ul>
+                    </li>
+                </ul>
+             </section>
+
+             <!-- 학력 -->
+              <section>
+                <h3>Education</h3>
+                <table>
+                    <caption>
+                        <b>
+                            Educational Background
+                        </b>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>School</th>
+                            <th>Major</th>
+                            <th>Perid</th>
+                            <th>Awards</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seoul National University</td>
+                            <td>Computer Engineering</td>
+                            <td>2017.03 ~ 2022.02</td>
+                            <td>Graduated</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </section>
+         </div>
+    </div>
+</body>
+</html>

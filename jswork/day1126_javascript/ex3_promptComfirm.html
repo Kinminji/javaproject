@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var userId=prompt("아이디입력","***");
+
+        if(userId=="min")
+        document.write(userId+"님 환영합니다.<br>");
+
+
+        var num=prompt("숫자 아무거나 입력","0");
+        document.write(num+10+"<br>");
+        document.write(typeof(num)+"<br>");
+
+        //promt창에 숫자 차례로 입력후 연산이 되도록 출력하시오
+        var num1=Number (prompt("숫자1"));
+        var num2=parseInt(prompt("숫자2"));
+        document.write("총 합계는"+(num1+num2)+"<br>");
+
+        //이름과 신장을 입력 후 표준몸무게를 구하시오
+        var name=prompt("이름을 입력해주세요.");
+        var hight=parseInt(prompt("키를 입력해주세요."));
+        document.write(name+"님의 표준 몸무게는"+((hight-100)*0.9)+"입니다.");
+
+        //confirm
+        var ans=confirm("삭제하시겠습니까?");
+        if(ans)
+        document.write("삭제합니다.<br>");
+        else
+        document.write("삭제하지 않습니다.<br>");
+
+        //for문
+        //원하는 단을 입력하여 구구단 출력
+        var dan=prompt("단");
+        var i=1;
+        while(i<=9)
+        {
+            document.write(dan+"X"+i+"="+(dan*i)+"<br>");
+            i++;
+        }
+
+        for(var i=1;i<=9;i++)
+        {
+            document.write(dan+"X"+i+"="+(dan*i)+"<br>");
+        }
+    </script>
+</body>
+</html>
