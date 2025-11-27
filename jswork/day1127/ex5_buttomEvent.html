@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="alert('직접 호출')"> 함수 호출-직접 이벤트</button>
+    <button type="button" onclick="hello()">자바스크립트 사용자 함수 호출</button>
+    <button type="button" id="btn">이벤트를 자바스크립트로</button>
+
+
+    <h1>오늘 점심 뭐 먹을까요?</h1>
+
+    <form action="">
+        <fieldset>
+            <legend>점심 메뉴 결정</legend>
+            <input type="button" value="할랄푸드" onclick="JILHALBROS()">
+            <input type="button" value="단백질쉐이크" onclick="SHAKE()">
+            <input type="button" value="카레" onclick="CURRY()">
+        </fieldset>
+    </form>
+
+    
+    <input type="button" value="여기를 클릭해 보세요." onclick="showevent()">
+
+    <script>
+        function hello(){
+            alert("2번째 함수 호출");
+        }
+
+        //btn에 이벤트 주기
+        // document.getElementById('btn').onclick=function()
+        // {
+        //     alert("3번째 버튼 호출");
+        // }
+        var b=document.getElementById('btn');
+        b.onclick=function()
+        {
+            alert("3번째 버튼 호출");
+        }
+
+        function JILHALBROS(){
+            alert("질할브로스");
+        }
+        function SHAKE(){
+            alert('밀잇 시리얼맛');
+        }
+        function CURRY(){
+            alert('아비꼬');
+        }
+
+
+        function showevent(){
+            if(confirm('오늘 이벤트 쉬운가요?'))
+            {
+                alert('네 쉬워요');
+            } else {
+                alert('아니요..');
+            }
+        }
+    </script>
+</body>
+</html>

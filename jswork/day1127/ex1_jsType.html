@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a="hello";
+        var b=200;
+        var c=12.5;
+        var d="60";
+
+        //typeof:데이터의 자료형 알아보기
+        document.write(typeof(a)+"<br>"); //string
+        document.write(typeof(b)+"<br>"); //number
+        document.write(typeof(c)+"<br>"); //number
+        document.write(typeof(d)+"<br>"); //string
+
+        document.write(b+100+"<br>"); //300
+        document.write(d+100+"<br>"); //60100
+
+        var sum=parseInt(d)+100; //문자를 형변환후 숫자를 더한 값, Number도 가능
+        document.write(sum+100+"<br>");
+
+
+        //eval("수시") : 실제 계산에서 출력
+        var s="5*6+3";
+        document.write(s+"<br>"); //5*6+3
+        document.write(eval(s)+"<br>"); //33    
+
+
+        //isNaN 숫자가 아닌값을 찾는 함수
+        //isNaN("456") 문자형숫자도 숫자로 인식해서 false를 반환
+
+        var input=prompt("숫자를 입력하시오");
+        function checkNaN(input){
+            result=Number(input);
+
+            if(isNaN(result)==true)
+            {
+                document.write("숫자가 아닙니다.(false)");
+            } else {
+                document.write("숫자가 맞습니다.(true) <br>");
+            }
+        }
+
+        checkNaN(input); 
+
+
+        //함수만들기
+        var name="박성진";
+        var age=33;
+        var weight=75.5;
+
+        //name, age, weight의 값을 화면에 출력하는 함수
+        var showInfo=function()
+        {
+            document.write("이름: "+name+"<br> 나이: "+age+"세 <br> 몸무게: "+weight+"kg <br>");
+        }
+        showInfo();
+    </script>
+</body>
+</html>

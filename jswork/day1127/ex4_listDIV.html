@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var list='';
+
+        list+='<ul>';
+            list+='<li>Java</li>';
+            list+='<li>Html</li>';
+        list+='</ul>';
+
+        window.onload=function()
+        {
+            document.getElementById('out').innerHTML=list;
+
+            document.getElementById("hi").innerHTML='hello';
+        }
+
+    </script>
+</head>
+<body>
+    <div id="out">리스트 출력</div>
+
+    <h1 id="hi">안녕</h1>
+
+    <!-- <script>
+         var list='';
+
+        list+='<ul>';
+            list+='<li>Java</li>';
+            list+='<li>Html</li>';
+        list+='</ul>';
+
+        // document.getElementById('out').innerHTML=list;
+        out.innerHTML=list; //out이라는 id가 하나만 있기 때문에 가능
+    </script> -->
+</body>
+</html>
