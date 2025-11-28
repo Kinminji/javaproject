@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>만화이미지 01~20까지를 출력해보세요.</h2>
+    <script>
+        for(var i=1;i<=20;i++){
+            var cartoon="<img src='../image/만화이미지/"+(i<10?"0":"")+i+".png' width='80'>";
+            document.write(cartoon);
+
+            if(i%5==0)
+            document.write("<br>");
+        }
+    </script>
+
+    <h2>자바스크립트 배열선언하는 방법</h2>
+    <script>
+        var arr=new Array();
+        arr[0]="장미";
+        arr[1]="코스모스";
+        arr[2]="안개꽃";
+        arr[3]="튤립";
+        arr[4]="느티나무";
+
+        for(var i=0;i<arr.length;i++) {
+            document.write(arr[i]+"<br>");
+        }
+    </script>
+
+    <h2>자바스크립트 배열선언하는 방법_2</h2>
+    <script>
+        var arr2=["장미","코스모스","안개꽃","튤립","느티나무"];
+
+        for(var i=0;i<arr2.length;i++) {
+            document.write(arr2[i]+"<br>");
+        }
+    </script>
+
+    <h2>자바스크립트 배열선언하는 방법_3</h2>
+    <script>
+        var arr3=new Array();
+
+        arr3[0]=['red','장미'];
+        arr3[1]=['pink','코스모스'];
+        arr3[2]=['#eee','안개꽃'];
+        arr3[3]=['orange','튤립'];
+        arr3[4]=['green','느티나무'];
+
+        for(var i=0;i<arr3.length;i++) {
+            document.write("<font color='"+arr3[i][0]+"'>"+arr3[i][1]+"</font><br>");
+        }
+    </script>
+
+    <h2>배열에 요소추가</h2>
+    <script>
+        var foodName=new Array();
+        foodName.push("햄버거");
+        foodName.push("알리오올리오");
+        foodName.push("피자");
+        foodName.push("샌드위치");
+
+        //출력<h3>
+        for(var i=0; i<foodName.length;i++) {
+            document.write("<h5>"+foodName[i]+"</h5>");
+        }
+        document.write("=============================<br>")
+
+        foodName.pop(); //마지막요소 제거
+        for(var i=0; i<foodName.length;i++) {
+            document.write("<h5>"+foodName[i]+"</h5>");
+        }
+        document.write("=============================<br>")
+        
+        foodName.shift(); //첫번째 요소 제거
+        for(var i=0; i<foodName.length;i++) {
+            document.write("<h5>"+foodName[i]+"</h5>");
+        }
+    </script>
+
+
+</body>
+</html>

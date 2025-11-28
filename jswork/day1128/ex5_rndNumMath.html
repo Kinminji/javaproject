@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #out{
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 300px;
+            height: 200px;
+            padding: 10px 10px;
+            background-color: #eee;
+            font-size: 11px;
+        }
+        #outimg {
+            position: absolute;
+            top: 50px;
+            left: 400px;
+            width: 300px;
+            height: 200px;
+            padding: 10px 10px;
+            border: 1px solid gray;
+        }
+        #outimg.img{
+            width: 300px;
+        }
+    </style>
+    <script>
+        //event 코드 번호 확인 enter=13
+        document.addEventListener("keydown",function(e){
+            console.log("keyCode",e.keyCode);
+        });
+
+
+
+        //숫자 맞추기
+
+        var rnd;
+        var cnt=0;
+
+        window.onload=function(){
+            rnd=parseInt(Math.random()*100)+1;
+        }
+
+        function check(su){
+            if(su<=0 || su>100){
+                alert("다시 입력해주세요.")
+            }
+
+            //난수와 숫자 비교해서 결과 출력
+            var out=document.getElementById("out");
+
+            cnt++;
+            if(su>rnd) {
+                out.innerHTML+=cnt+"회: "+su+"보다 작습니다.<br>";
+            }
+            else if(su<rnd) {
+                out.innerHTML+=cnt+"회: "+su+"보다 큽니다.<br>";
+            }
+            else if(su==rnd) {
+                out.innerHTML="<h3>축하합니다. 정답은 "+rnd+"입니다</h3><br>";
+                myimg.src="../image/다운로드.jpg";
+            }
+
+            //횟수 제한
+            if(cnt>=10) {
+                out.innerHTML="<h3>다음기회에......</h3><br>"
+                myimg.src="../image/다운로.jpg";
+            }
+
+            frm.num.value="";
+        }
+    </script>
+</head>
+<body>
+    <div class="input">
+        <form action="#" name="frm" onsubmit="return false">
+            <b>숫자: </b>
+            <input type="text" name="num" size="5" onkeydown="if(event.keyCode==13) check(value)">
+        </form>
+    </div>
+    <div id="out">
+
+    </div>
+    <div id="outimg">
+        <img src="" alt="" name="myimg">
+    </div>
+</body>
+</html>

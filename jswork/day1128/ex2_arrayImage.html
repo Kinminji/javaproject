@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 70px;
+            height: 80px;
+            border: 1px solid green;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>배열-초기값으로 지정</h3>
+    <script>
+        var arr1=["../image/연예인사진/12.jpg",
+        "../image/food/1.jpg",
+        "../image/logoimg/toy04.png",
+        "../image/쇼핑몰사진/1.jpg"];
+        var s="배열갯수: "+arr1.length+"<br>";
+        for(var i=0;i<arr1.length;i++){
+            s+="<img src='"+arr1[i]+"'>";
+        }
+        document.write(s);
+    </script>
+
+    <h3>배열_Array()로 선언 지정</h3>
+    <script>
+        var arr2=new Array();
+        arr2[0]="../image/food/3.jpg"
+        arr2[1]="../image/food/4.jpg"
+        arr2[2]="../image/food/5.jpg"
+        arr2[3]="../image/food/6.jpg"
+
+        var s="배열갯수: "+arr2.length+"<br>";
+        for(var i=0;i<arr2.length;i++) {
+            s+="<img src='"+arr2[i]+"'>";
+        }
+        document.write(s);
+    </script>
+
+    <h3>배열_Array() push로 선언 지정</h3>
+    <script>
+        var arr2=new Array();
+        arr2.push("../image/food/3.jpg");
+        arr2.push("../image/food/4.jpg");
+        arr2.push("../image/food/5.jpg");
+        arr2.push("../image/food/6.jpg");
+
+        var s="배열갯수: "+arr2.length+"<br>";
+        for(var i=0;i<arr2.length;i++) {
+            s+="<img src='"+arr2[i]+"'>";
+        }
+        document.write(s);
+    </script>
+
+    <h3>바로 위의 배열에서 2개 제거 pop()</h3>
+    <script>
+        arr2.pop();
+
+        var s="배열갯수: "+arr2.length+"<br>";
+        for(var i=0;i<arr2.length;i++) {
+            s+="<img src='"+arr2[i]+"'>";
+        }
+        document.write(s);
+    </script>
+
+    <h3>바로 위의 배열에서 2개 제거 shift()</h3>
+    <script>
+        arr2.shift();
+
+        var s="배열갯수: "+arr2.length+"<br>";
+        for(var i=0;i<arr2.length;i++) {
+            s+="<img src='"+arr2[i]+"'>";
+        }
+        document.write(s);
+    </script>
+</body>
+</html>

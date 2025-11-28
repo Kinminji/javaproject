@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/buttonstyle.css">
+    <style>
+        #result{
+            position: absolute;
+            border: 1px solid gray;
+            top: 70px;
+            left: 20px;
+            width: 380px;
+            height: 300px;
+        }
+        .btn1{
+            display: inline-block;
+            gap: 10px;   /* 버튼 간격 */
+            margin-left: 15px;
+        }
+
+    </style>
+    <script>
+        //버튼을 누르면 해당 연예인 이미지가 출력
+        //각각의 버튼을 클릭하면 이미지 출력하는데 매번 확인창 띄우기
+
+            function btnPark(){
+                if(confirm("박명수 이미지 출력할까요?"))
+            {
+                document.getElementById("result").innerHTML="<img src='../image/무한도전/다운로드 (1).jpg' width='380px' height='300px'>"
+            } else {
+                document.getElementById("result").innerHTML="취소되었습니다."
+            }
+            }
+
+            window.onload=function(){
+                var btn=document.getElementById("btnyou")
+                btn.onclick=function(){
+                    if(confirm("유재석 이미지 출력할까요?"))
+                {
+                    document.getElementById('result').innerHTML="<img src='../image/무한도전/다운로드 (3).jpg' width='380px' height='300px'>"
+                }
+                else {
+                    document.getElementById("result").innerHTML="취소되었습니다."
+                }
+                }
+
+                var btn1=document.getElementById("btnjoo")
+                btn1.onclick=function(){
+                    if(confirm("조세호 이미지를 출력할까요?"))
+                {
+                    document.getElementById("result").innerHTML="<img src='../image/무한도전/다운로드 (7).jpg' width='380px' height='300px'>"
+                }
+                else {
+                    document.getElementById("result").innerHTML="취소되었습니다."
+                }
+                }
+            }
+    </script>
+</head>
+<body>
+    <button type="button" class="btn1 btn-pink" onclick="btnPark()">박명수</button>
+    <button type="button" class="btn1 btn-green" id="btnyou">유재석</button>
+    <button type="button" class="btn1 btn-black" id="btnjoo">조세호</button>
+
+    <hr>
+    <div id="result"></div>
+</body>
+</html>

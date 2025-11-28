@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>#1 배열변수 초기값으로 5개 지정한 후 배열값을 해당색으로 출력_b태그 이용</h3>
+    <script>
+        var s=["red","pink","orange","blue","purple"]
+
+        for(var i=0;i<s.length;i++) {
+            document.write("<b style='color:"+s[i]+";'>"+s[i]+"</b><br>");
+        }
+
+        document.write("<hr>");
+
+        //of : s의 배열값이 차례대로 반복해서 꺼내진다
+        for(var n of s){
+            document.write("<b style='color:"+n+";'>"+n+"</b><br>");
+        }
+
+        document.write("<hr>");
+
+        //in: 배열의 인덱스를 얻고자 할 경우
+        for(var idx in s) {
+            document.write("<br>"+idx+":"+s[idx]+"</b><br>");
+        }
+
+    </script>
+
+    <h3>Array(3) 으로 생성하시고 각배열에 이미지 넣고 출력은 of로 해볼것</h3>
+
+    <script>
+        var arr1=new Array(3);
+
+        arr1=["../image/food/1.jpg","../image/food/2.jpg","../image/food/3.jpg"];
+
+        for(var r of arr1) {
+            document.write("<img src='"+r+"'width='100'<br>");
+        }
+    </script>
+
+    <h3>Q1. food 안의 모든 이미지를 출력하시오 (4열씩만 배치해주세요.)</h3>
+    <script>
+        for(var i=1;i<=12;i++) {
+            document.write("<img src='../image/food/"+i+".jpg' width='100' height='100'>");
+
+            if(i%4==0){
+                document.write("<br>")
+            }
+        }
+    </script>
+
+    <h3>Q2. hello가 h1태그로 5번 반복되고 각 hello의 색상을 배열의 5가지 색상으로 나오게 해주세요.</h3>
+    <script>
+        var hello=new Array();
+        hello[0]=["red","hello"];
+        hello[1]=["orange","hello"];
+        hello[2]=["purple","hello"];
+        hello[3]=["blue","hello"];
+        hello[4]=["green","hello"];
+
+        for(var i=0;i<hello.length;i++) {
+            document.write("<h1 style='color:"+hello[i][0]+"'>"+hello[i][1]+"</h1>");
+        }
+    </script>
+
+    <h3>Q3_1. 확인버튼을 누르면 정말 탈퇴하실건가요? 확인시 탈퇴되었습니다. 취소시 취소되었습니다.<br>
+        Q3_2. 입력버튼을 누르면 당신이 사는 지역은? 입력한 동네 결과창에 띄우기
+    </h3>
+    <script>
+        function myconfirm(){
+            if(confirm("탈퇴하시겠습니까?")){
+                alert("탈퇴되었습니다.");
+            } else {
+                alert("취소되었습니다.");
+            }
+        }
+
+        window.onload=function(){
+            var btn=document.getElementById("btnprompt");
+            btn.onclick=function(){
+                var arr=prompt("사는 지역을 입력해주세요");
+                if(arr==null){
+                    document.getElementById("result").innerHTML="입력을 하지 않으셨습니다.";
+                } else {
+                    document.getElementById("result").innerHTML=arr+"입니다.";
+                }
+            }
+        }
+    </script>
+    <button type="button" onclick="myconfirm()">확인</button>
+    <button type="button" id="btnprompt">입력</button>
+    <div id="result">출력</div>
+</body>
+</html>

@@ -33,8 +33,3 @@ button.black{
     border-radius: 20px;
     font-family: Nanum Pen Script;
 }
-button.btn1:hover{
-    background-color: red;
-    border: red solid 1px;
-    color: black;
-}
