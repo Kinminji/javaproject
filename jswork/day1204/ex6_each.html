@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="../css/lottostyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+    <div class="lotto"></div>
+
+    <h2></h2>
+</body>
+
+<script>
+    $("div").each(function(i){
+
+        var r=parseInt(Math.random()*256)
+        var g=parseInt(Math.random()*256)
+        var b=parseInt(Math.random()*256)
+
+        $(this).css("background-color","rgb("+r+","+g+","+b+")")
+        $(this).text(i+1);
+    });
+
+    //공위에 마우스 올리면 h2에 rgb컬러 출력
+    $("div.lotto").mouseover(function(){
+        var bg=$(this).css("background-color");
+        $("h2").text(bg).css("color",bg);
+    })
+</script>
+</html>

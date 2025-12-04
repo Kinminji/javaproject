@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="shop">
+        <!--for문으로 이미지 불러오기 -->
+
+        <script>
+        for(var i=1;i<36;i++){
+            var s="<img src='../image/쇼핑몰사진/"+i+".jpg' width='50px'>";
+            document.write(s);
+        }
+    </script>
+    </div>
+    <hr>
+    <img src="../image/무한도전/다운로드 (9).jpg" alt="" width="300px" class="mainphoto">
+
+    <script>
+        //1.메인포토의 위치를 left 100 top 200 border 10px solid 
+
+        $(".mainphoto").hover(function(){
+            $(this).css({
+                "position":"absolute",
+                "top":"200px",
+                "left":"100px",
+                "border":"10px solid gray"
+            });
+        },function(){
+            $(this).css({
+                "position":"static",
+                "border":"none"
+            })
+        });
+
+        //2...shop에 마우스를 올리면 그 사진으로 메인포토 변경하기
+        $(".shop img").mouseover(function(){
+            var curimg=$(this).attr("src");
+
+            $(".mainphoto").attr("src",curimg)
+        })
+
+    </script>
+</body>
+</html>

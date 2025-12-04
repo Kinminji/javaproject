@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        /* .smallimg{
+            width: 100px;
+            height: 120px;
+            border: 2px solid gray;
+        } */
+    </style>
+    <script>
+        $(function(){
+
+        
+        //1. 작은 10개의 이미지 넓이100 높이120 보더
+        $(".smallimg").css({
+            "width":"100px",
+            "height":"120px",
+            "border":"2px solid gray"
+        });
+
+        //2. each이용해서 1~10까지 이미지 넣기
+        $(".smallimg").each(function(i){
+            $(this).attr("src","../image/무한도전/다운로드 ("+(i+1)+").jpg");
+        })
+
+        //largeimg 너비 높이 보더
+        $(".largeimg").css({
+            "width":"200px",
+            "height":"240px",
+            "border":"2px solid gray"
+        });
+
+        //작은 이미지에 마우스 올리면 큰이미지에 나오게
+        var s="";
+        $(".smallimg").hover(function(){
+            s=$(this).attr("src")
+            $(".largeimg").attr("src",s)
+        },function(){
+            $(".largeimg").attr("src","none")
+        });
+        })
+    </script>
+</head>
+<body>
+    <h3>10개의 이미지 태그</h3>
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+    <img src="" alt="" class="smallimg">
+
+    <br><br>
+
+    <img src="" alt="" class="largeimg">
+
+</body>
+</html>

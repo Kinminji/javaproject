@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3>jquery event</h3>
+    <div class="photo">
+        <img src="../image/무한도전/다운로드 (8).jpg" alt="" width="300px">
+        <img src="../image/무한도전/다운로드 (11).jpg" alt="" width="300px">
+    </div>
+
+    <script>
+        //첫번째 이미지에 마우스 올리면 다른이미지로 변경
+        //벗어나면 원래대로
+        var f=" ";
+        $("div.photo>img:eq(0)").hover(function(){
+            f=$(this).attr("src");
+            $(this).attr("src","../image/무한도전/다운로드 (12).jpg");
+        },function(){
+            $(this).attr("src",f);
+        });
+
+        //두번째 이미지 마우스 올리변 border
+        var s=" ";
+        $(".photo>img:eq(1)").hover(function(){
+            s=$(this).css("border");
+            $(this).css("border","10px solid gray");
+        },function(){
+            $(this).css("border",s);
+        });
+    </script>
+
+    <hr>
+    <img src="../image/무한도전/다운로.jpg" alt="" width="200px" class="myphoto">
+
+    <script>
+        //myphoto에 마우스 올리면 이미지변경, 복귀 클릭시 경고창
+        //bind:여러 이벤트 한번에 처리
+        var t="";
+        $(".myphoto").bind({
+            click:function(){
+                alert("bind");
+            }, 
+            mouseover:function(){
+                $(this).attr("src","../image/무한도전/다운로드 (12).jpg");
+            },
+            mouseout:function(){
+                $(this).attr("src","../image/무한도전/다운로.jpg");
+            }
+        })
+    </script>
+</body>
+</html>

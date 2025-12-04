@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid saddlebrown;
+            padding: 20px 20px;
+            width: 500px;
+            margin-bottom: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <h3>폼태그 연습#1</h3>
+    <div>
+        <b>ID </b>
+        <input type="text" style="width: 120px;">
+        <br>
+        <b>Password</b>
+        <input type="password" style="width: 120px;">
+        <br>
+    </div>
+    <script>
+        //포커스가 갈경우 다른색상
+        $("input:text,input:password").focus(function(){
+            $(this).css("background-color","#eee");
+        });
+        $("input:text,input:password").blur(function(){
+            $(this).css("background-color","white");
+        });
+    </script>
+
+    <h3>폼태그 연습#2</h3>
+    <div>
+        <input type="checkbox" id="chklic">운전면허&nbsp;&nbsp;
+        <button type="button" id="btn1">확인</button>&nbsp;&nbsp;
+        <span></span>
+    </div>
+
+    <script>
+        $("#btn1").click(function(){
+            var a=$("#chklic").val();
+            var b=$("#chklic").is(":checked");
+
+            $("span:eq(0)").html(a+","+b);
+        })
+    </script>
+
+    <h3>폼태그 연습#3</h3>
+    <div>
+        <b>거주 지역</b>
+        <input type="radio" name="city" value="서울">서울&nbsp;
+        <input type="radio" name="city" value="경기">경기&nbsp;
+        <input type="radio" name="city" value="대전">대전&nbsp;
+        <input type="radio" name="city" value="경주">경주&nbsp;
+        <input type="radio" name="city" value="부산">부산&nbsp;
+        <input type="radio" name="city" value="제주">제주&nbsp;
+        <button type="button" id="btncity">확인</button>
+        <span></span>
+
+        <script>
+            $("#btncity").click(function(){
+                var city=$("input[name='city']:checked").val();
+                $("span:eq(1)").html(city);
+            });
+        </script>
+    </div>
+
+    <h3>폼태그 연습#4</h3>
+    <div>
+        <b>방문 나라</b>
+        <input type="checkbox" name="country" value="호주">호주&nbsp;
+        <input type="checkbox" name="country" value="캐나다">캐나다&nbsp;
+        <input type="checkbox" name="country" value="스위스">스위스&nbsp;
+        <input type="checkbox" name="country" value="런던">런던&nbsp;
+        <input type="checkbox" name="country" value="파리">파리&nbsp;
+        <button type="button" id="btncountry">확인</button>
+        <span></span>
+    </div>
+
+    <script>
+        $("#btncountry").click(function(){
+            //체크된 나라의 갯수를 먼저 알아보기
+            var l=$("input[name=country]:checked").length;
+            var s="<br>체크된 갯수: "+l+"개&nbsp;&nbsp;";
+
+            if(l==0){
+                s+="<br>방문한 나라가 없습니다."
+            } else {
+                $("input[name=country]:checked").each(function(i){
+                    s+=$(this).val()+"&nbsp;"
+                })
+            }
+
+            $("span:eq(2)").html(s);
+        });
+    </script>
+
+    <h3>폼태그 연습#5</h3>
+    <div>
+        <select id="selone">
+            <option value="skyblue">하늘색</option>
+            <option value="green">초록색</option>
+            <option value="orange">오렌지</option>
+            <option value="pink">핑크색</option>
+        </select>
+        <button type="button" id="btnCol">색상확인</button>
+        <span></span>
+    </div>
+
+    <script>
+        $("#btnCol").click(function(){
+            var text=$("#selone option:selected").text();
+            var colval=$("#selone").val();
+
+            var s="<b style='color:"+colval+"'>"+text+"</b>";
+
+            $("span:eq(3)").html(s);
+        })
+    </script>
+</body>
+</html>
