@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            // alert("처음 로딩 시 호출_window.onload");
+
+            //css(속성):해당요소의 속성값 반환
+            //css(속성,값):속성을 해당값으로 변경
+            //$("selector"):$안에 접근을 위한 요소를 둔다 이를 selector 라고 한다
+
+            //모든 b태그의 글꼴을 20pt로 변경하라
+
+            //b태그중 클래스가 happy인 태그의 배경색을 오렌지로 변경하라
+
+            $("b").css("font-size","20pt");
+            $("b.happy").css("background-color","orange");
+
+            //연달아 h2 보더, 글자색
+            $("h3").css({
+                "border":"1px solid gray",
+                "color":"blue",
+                "width" : "200"
+            })
+
+            //속성 : 스타일변경 css 속성변경 attr
+            //attr(속성, 값)-setAttribute
+            //attr(속성)-getAttribute
+            $("img").attr("src","../image/무한도전/다운로드 (12).jpg");
+
+            //css,attr 같이
+            $("img").attr("src","../image/무한도전/다운로드 (13).jpg").css({
+                "width":"200px",
+                "border":"5px solid skyblue"
+            });
+
+            //문제
+            //1. img tag 중에서 클래스명이 likeimg의 이미지를 변경
+            //width, border, box-shodow, border-radios
+            $("img.likeimg").attr("src","../image/무한도전/다운로드 (14).jpg").css({
+                "width":"200px",
+                "border":"5px solid orange",
+                "box-shadow":"5px 5px 5px gray",
+                "border-radius":"100px"
+            })
+            
+            //2.span태그 중 class가 nice인 태그의 배경색과 글자색 글자크기 변경
+            $("span.nice").css({
+                "color":"gray",
+                "font-size":"2em",
+                "background-color":"skyblue"
+            })
+
+            //3.아이디가 myimg인 이미지와 너비를 변경하고 title을 안녕하세요 로 변경하시오
+            $("#myimg").attr({
+                "src":"../image/무한도전/다운로드 (15).jpg",
+                "title":"안녕하세요."
+            }).css("width","200px");
+
+            //4.이미지중 2번째 이미지의 보더를 빨강색으로 표시하세요
+            $("img:eq(1)").css("border","5px solid red");
+
+            //5.happy라는 클래스의 자식 div에만 dongle 글꼴 적용, 20pt적용
+            $(".happy>div").css({
+                "font-size":"20pt",
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>jquery에서 제일 많이 사용함수 _ css,attr</h2>
+    <b class="happy">B tag _ class happy</b><br>
+    <span class="nice">span _ class nice</span><br>
+    <h3 class="happy">H3 tag _ class happy</h3>
+    <b>my favorite img</b>
+    <img src="" alt="" id="myimg">
+    <img src="" alt="">
+    <img src="" alt="" class="likeimg">
+    <img src="" alt="">
+
+    <div class="happy">
+        happy class div
+        <div>happy _ div</div>
+        <div>happy _ div2
+            <div>
+                happy _ div _ div
+            </div>
+        </div>
+    </div>
+</body>
+</html>

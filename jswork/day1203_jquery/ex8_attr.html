@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="../image/무한도전/다운로드 (19).jpg" alt="" width="200px" irum="피곤하다" id="t"><br>
+    <figure>
+        <img src="../image/무한도전/다운로드 (16).jpg" alt="">
+        <figcaption>몇시냐구</figcaption>
+    </figure>
+    <figure>
+        <img src="../image/무한도전/다운로드 (13).jpg" alt="">
+        <figcaption>뭐야</figcaption>
+    </figure>
+
+    <h3>첫번째 이미지를 클릭하면 아래의 이미지에 카피하기</h3>
+    <img src="" alt="" id="copy1">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+
+    <script>
+        $("#t").click(function(){
+            var copysrc=$(this).attr("src")
+            var copywidth=$(this).css("width");
+
+            $("#copy1").after("<img src='"+copysrc+"' style='width:"+copywidth+";'>");
+        });
+
+        //figure아래 이미지 누르면 역시 h3의 text 그 아래 이미지 출력
+        //클릭한 것의 다음태그 next(),이전태그 prev()
+        $("figure>img").click(function(){
+            var copyimg=$(this).attr("src");
+            var copytext=$(this).next().text();
+
+            $("img:eq(5)").after("<img src='"+copyimg+"'>");
+            $("h3").html(copytext);
+        })
+    </script>
+</body>
+</html>

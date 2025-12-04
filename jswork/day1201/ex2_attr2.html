@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one{
+            margin-bottom: 50px;
+            margin-top: 25px;
+        }
+    </style>
+    <script>
+        function small(){
+            var mango=document.getElementById("mango");
+            var w=mango.getAttribute("width");
+
+            console.log(typeof(w));
+
+            w-=10;
+            mango.setAttribute("width",w);
+        }
+
+        function large(){
+            var mango=document.getElementById("mango");
+            var w=mango.getAttribute("width");
+            w=parseInt(w); //width속성을 int로 형변환
+
+            console.log(typeof(w));
+
+            w+=10;
+            mango.setAttribute("width",w);
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="one">
+        <button type="button" onclick="small()"> 점점 작게</button>
+        <button type="button" onclick="large()"> 점점 크게</button>
+    </div>
+
+    <img src="../image/food/11.jpg" alt="" width="200" id="mango">
+    <hr>
+
+    <h3>배열로 이미지 5개 출력하기</h3>
+    <script>
+        var arrimg=["../image/무한도전/다운로드 (1).jpg","../image/무한도전/다운로드 (2).jpg","../image/무한도전/다운로드 (3).jpg",
+            "../image/무한도전/다운로드 (4).jpg","../image/무한도전/다운로드 (5).jpg"
+        ];
+
+        var s="";
+        for(var i=0;i<arrimg.length;i++){
+            s+="<img src='"+arrimg[i]+"'>";
+        }
+        document.write(s);
+    </script>
+</body>
+</html>

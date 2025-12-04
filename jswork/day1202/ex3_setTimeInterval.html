@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #time{
+            font-size: 2em;
+            margin-left: 100px;
+            font-weight: 900;
+        }
+        #myimg{
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //현재시간함수호출
+            curTime();
+
+            //1초마다 시간 다시 출력
+            setInterval(function(){
+                curTime();
+            },1000);
+
+            var xpos=350;
+            var ypos=300;
+            var myimg;
+
+            myimg=document.getElementById("myimg");
+            //5초뒤에 한번 위치 변경
+            setTimeout(function(){
+                myimg.style.left=xpos+"px";
+                myimg.style.top=ypos+"px";
+            },5000)
+        }
+
+        function curTime(){
+            var date=new Date();
+
+            var h=date.getHours();
+            var m=date.getMinutes();
+            var s=date.getSeconds();
+
+            //m s 10미만일 경우 앞에 0붙히기
+            var time=h+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+            
+
+            document.getElementById("time").innerHTML=time;
+        }
+    </script>
+</head>
+<body>
+    <h2>setTimeout & setInterval</h2>
+    <img src="../image/무한도전/다운로드 (10).jpg" alt="" id="myimg">
+    <div id="time">10</div>
+</body>
+</html>

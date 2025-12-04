@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 700px;
+            border-collapse: collapse;
+        }
+        tr,th{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <h2>input 태그 연습</h2>
+    <table>
+        <tr>
+            <th>종류</th>
+            <th>태그</th>
+            <th>이벤트 후 결과</th>
+        </tr>
+        <tr>
+            <td>
+                1. input-text
+            </td>
+            <td><input type="text" id="txt1" placeholder="값을 입력해주세요.">
+            :입력시 옆칸에 바로 나오게 할것
+            </td>
+            <td class="a"></td>
+        </tr>
+        <tr>
+            <td>2. input-text</td>
+            <td><input type="text" id="txt2" placeholder="값을 입력해주세요.">
+            :입력 후 엔터를 누르면 값이 출력
+            </td>
+            <td class="b"></td>
+        </tr>
+        <tr>
+            <td>3. input-color</td>
+            <td><input type="color" value="#ccffff" id="color1"></td>
+            <td class="c"></td>
+        </tr>
+        <tr>
+            <td>
+                4. input-checkbox
+            </td>
+            <td>
+                <label><input type="checkbox" id="chk1">굵게</label>
+                <label><input type="checkbox" id="chk2">밑줄</label>
+            </td>
+            <td class="d">CheckBox</td>
+        </tr>
+        <tr>
+            <td>5. input-radio</td>
+            <td>
+                <label><input type="radio" name="tcolor" value="red">빨강</label>
+                <label><input type="radio" name="tcolor" value="pink">핑크</label>
+                <label><input type="radio" name="tcolor" value="skyblue">하늘</label>
+                <label><input type="radio" name="tcolor" value="green">초록</label>
+            </td>
+            <td class="e">Radio</td>
+        </tr>
+    </table>
+
+        <script>
+            //1번 이벤트
+            document.getElementById('txt1').onkeydown=function(e){
+
+                //입력값 읽기
+                var v=e.target.value;
+                document.querySelector(".a").innerHTML=v;
+            }
+
+            //2번 이벤트
+            document.getElementById('txt2').onkeydown=function(e){
+
+                var v=this.value;
+                //엔터 입력시 출력
+                if(e.keyCode==13){
+                    document.querySelector(".b").innerHTML=v;
+                }
+            }
+
+            //3번 이벤트
+            document.getElementById('color1').onchange=function(){
+
+                //선택한 색상
+                var c=this.value;
+                //옆칸의 배경색으로 출력
+                document.querySelector(".c").style.backgroundColor=c;
+                //색상출력
+                document.querySelector(".c").innerHTML=c;
+            }
+
+            //4번 이벤트
+            document.getElementById("chk1").onclick=function(){
+                var v=this.value; //on
+                var check=this.checked; //체크시 true
+                //alert(v+","+check);
+
+                if(check==true){
+                    document.querySelector(".d").style.fontWeight="bold";
+                } else {
+                    document.querySelector(".d").style.fontWeight="normal";
+                }
+            }
+            document.getElementById("chk2").onclick=function(){
+                var v=this.value;
+                var line=this.checked;
+
+                if(line==true){
+                    document.querySelector(".d").style.textDecoration="underline";
+                } else {
+                    document.querySelector(".d").style.textDecoration="none";
+                }
+            }
+
+            //5번 이벤트
+            var tradio=document.getElementsByName('tcolor');
+            for(var i=0;i<tradio.length;i++){
+                tradio[i].onclick=function(){
+                    var v=this.value;
+                    document.querySelector(".e").style.color=v;
+                }
+            }
+        </script>
+        
+</body>
+</html>

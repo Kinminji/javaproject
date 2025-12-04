@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/buttonstyle.css">
+    <style>
+        #result{
+            width: 350px;
+            height: 250px;
+            text-align: center;
+            line-height: 250px;
+            border: 1px solid gray;
+            margin-top: 20px;
+        }
+        #result::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 250px;
+            margin-top: 55px;
+            margin-left: 10px;
+            background: url("../image/무한도전/다운로드\ \(6\).jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4; /* 배경만 투명 */
+            z-index: -1; /* 글자 뒤로 보내기 */
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //div
+            var r=document.getElementById("result");
+            //img
+            var i=document.getElementById("imgresult");
+
+            //버튼1
+            //버튼1을 누르면 이름묻는 창, result에 출력
+            document.getElementById("btn1").onclick=function(){
+                var name=prompt("이름을 입력해주세요.")
+            if(name==null){
+                r.innerText="<u>입력하시지 않았습니다.</u>";
+            } else {
+                r.innerHTML="<u>당신의 이름은"+name+"입니다.</u>";
+            }
+            }
+            
+            //버튼2
+            //이미지의 너비를 입력해서 해당너비로 변경되게, 취소시 이미지 변경
+            document.getElementById("btn2").onclick=function(){
+
+                //현재 width
+                var curWidth=i.getAttribute("width");
+                alert(curWidth);
+                var new_width=prompt("이미지의 원하는 너비를 입력해주세요.",curWidth);
+
+                if(new_width==null){
+                    alert("이미지 변경을 취소합니다.");
+                } else {
+                    i.setAttribute("width",new_width);
+                }
+            }
+
+            //버튼3
+            //출력할 음식 번호를 눌러주세요(1~12)
+            //취소누르면 현재사진을 변경하지 않겠어요
+            //확인누르면 해당사진으로 사진 변경
+            //사진의 범위를 벗어난 번호를 입력할 경우 함수 종료
+
+            
+
+            document.getElementById("btn3").onclick=function(){
+                var num=prompt("출력할 음식 번호를 입력해주세요.",1)
+                if(num==null){
+                    alert("현재 사진을 변경하지 않겠습니다.")
+                } else if(num<1 || num>12){
+                    i.innerHTML="<img src='"+cimg[i]+"'>"
+                    return;
+                }
+
+            var cimg="../image/food/"+num+".jpg";
+            i.setAttribute("src",cimg);
+                }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" class="btn1" id="btn1">이벤트1</button>
+    <button type="button" class="btn1" id="btn2">이벤트2</button>
+    <button type="button" class="btn1" id="btn3">이벤트3</button>
+    <div id="result"></div>
+    <img src="../image/food/1.jpg" alt="" id="imgresult" width="352">
+</body>
+</html>

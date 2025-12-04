@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //배열에 이미지 5개 출력
+            
+            var infinity=new Array();
+
+            infinity.push("../image/무한도전/다운로드 (5).jpg");
+            infinity.push("../image/무한도전/다운로드 (6).jpg");
+            infinity.push("../image/무한도전/다운로드 (7).jpg");
+            infinity.push("../image/무한도전/다운로드 (8).jpg");
+            infinity.push("../image/무한도전/다운로드 (9).jpg");
+
+            //이미지 출력 버튼 누르면 출력할 인덱스를 입력해주세요
+            //인덱스(0~4)에 따른 이미지를 출력해주세요
+
+            var btn1=document.getElementById("btn1");
+            var rimg=document.getElementById("resultimg");
+
+            btn1.onclick=function(){
+                var i=prompt("출력할 인덱스를 입력해주세요.")
+
+                if(i<0 || i>4) {
+                    rimg.innerHTML="해당 이미지가 없습니다."
+                } else {
+                    rimg.innerHTML="<img src='"+infinity[i]+"'>"
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" id="btn1"> 이미지 출력</button>
+    <hr>
+    <div id="resultimg"> 이미지 출력 장소</div>
+</body>
+</html>

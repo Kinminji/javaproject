@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myphoto{
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var img=document.getElementById("myphoto");
+
+            var x=30;
+            var y=200;
+
+            //초기이미지 위치 지정
+            img.style.top=y+"px";
+            img.style.left=x+"px";
+
+            //버튼 이벤트
+            var innter;
+
+            document.getElementById("btngo").onclick=function(){
+                innter=setInterval(function(){
+                    img.style.left=x+"px";
+                    x+=10;
+                },100);
+            }
+            document.getElementById("btnstop").onclick=function(){
+                clearInterval(innter);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>setInterval연습</h3>
+    <br>
+    <button type="button" id="btngo">이동</button>
+    <button type="button" id="btnstop">멈춤</button>
+    <img src="../image/무한도전/다운로.jpg" alt="" id="myphoto">
+</body>
+</html>

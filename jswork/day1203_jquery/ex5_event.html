@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3>이미지 클릭 시 src,width 얻어서 hr태그 다음에 같은 이름의 사진을 넣기
+        사진 title 얻어서 div안에 넣고 글씨 크기 25pt 글꼴 dongle
+    </h3>
+    <img src="../image/무한도전/다운로드 (20).jpg" alt="" width="300px" title="지~잉~" id="img">
+    <hr>
+    <div>이곳</div>
+
+    <script>
+    $("#img").click(function(){
+        var mysrc = $(this).attr("src");
+        var wid = $(this).css("width"); // ex: "300px"
+        var mytitle = $(this).attr("title");
+
+        // HTML 문법에 맞게 생성
+        var copy = `<img src="${mysrc}" style="width:${wid}; margin-top:10px;">`;
+
+        $("hr").after(copy); // hr 다음에 삽입
+
+        $("div").html(mytitle).css({
+            "font-size": "25pt",
+            "font-family": "Dongle"
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #small_photo{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 400px;
+            height: 500px;
+        }
+
+        .sphoto{
+            width: 60px;
+            height: 60px;
+            border: 1px solid gray;
+            margin: 3px;
+            cursor: pointer;
+        }
+
+        #mainimg{
+            position: absolute;
+            left: 450px;
+            top: 100px;
+        }
+        #large_photo{
+            width: 250px;
+            height: 250px;
+            border: 5px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="small_photo">
+        <script>
+            for(var i=1;i<13;i++){
+                document.write("<img src='../image/food/"+i+".jpg' class='sphoto'>");
+            }
+        </script>
+    </div>
+
+    <div id="mainimg" class="mainimg">
+        <img src="" alt="" id="large_photo">
+    </div>
+
+    <script>
+        //class배열얻기
+        //방법1: getElementByClassName
+        //방법2: querySelectorAll
+
+        var m=document.querySelectorAll('.sphoto');
+        var large=document.getElementById("large_photo");
+
+        m.forEach(function(t){
+            t.onmouseover=function(){
+                large.src=this.src;
+            };
+        });
+    </script>
+</body>
+</html>

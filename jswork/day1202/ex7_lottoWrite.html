@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var lotto=new Array(6);
+        window.onload=function(){
+            document.getElementById("btnWrite").onclick=function(){
+                for(var i=0;i<lotto.length;i++){
+               var num=parseInt(Math.random()*45)+1;
+               
+               for(var j=0;j<i;j++){
+                if(lotto[i]==num){
+                    i--;
+                    num=null;
+                    break;
+                }
+               }
+
+               if(num !==null){
+                lotto[i]=num;
+               }
+               
+               lotto.sort(function(a,b){
+                return a-b;
+               });
+
+               out.innerHTML="로또번호: "+lotto.join(",");
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" id="btnWrite">로또 숫자 구하기</button>
+
+    <div id="out"></div>
+</body>
+</html>

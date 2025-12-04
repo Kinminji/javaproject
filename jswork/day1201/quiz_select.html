@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        .container div img{
+            border: 1px solid gray;
+            margin-top: 20px;
+        }
+        
+    </style>
+    <script>
+        window.onload=function(){
+            var selimg=document.getElementById("selimg");
+            var foodphoto=document.getElementById("mainfood");
+
+            //초기이미지 매칭이 안된것 해결
+            var init_img=selimg.value;
+            //현재사진이랑 매칭
+            foodphoto.setAttribute("src",init_img);
+
+            //select
+            selimg.onchange=function(){
+                console.log(this.value);
+
+                foodphoto.setAttribute("src",this.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button type="button" id="small">점점 작게</button>
+            <button type="button" id="large">점점 크게</button>
+
+            <b>사진 선택</b>
+            <select name="" id="selimg">
+                <option value="../image/food/1.jpg">에그샌드위치</option>
+                <option value="../image/food/2.jpg">산적 꼬치</option>
+                <option value="../image/food/3.jpg">얼큰 육개장 우동</option>
+                <option value="../image/food/8.jpg">닭가슴살샌드위치</option>
+            </select>
+        </div>
+
+        <div>
+            <img src="../image/food/1.jpg" alt="" id="mainfood" width="350">
+        </div>
+    </div>
+</body>
+</html>

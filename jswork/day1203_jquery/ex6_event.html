@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="../image/무한도전/다운로드 (19).jpg" alt="">
+    <img src="../image/무한도전/다운로드 (18).jpg" alt="">
+    <img src="../image/무한도전/다운로드 (17).jpg" alt="">
+
+    <script>
+        //모든 이미지에 마우스를 위에 올리면 다른이미지로 변경
+        //마우스가 이미지를 벗어나면 다시 원래대로 복귀
+        
+        $("img").mouseover(function(){
+            origin=$(this).attr("src");
+
+            $(this).attr("src","../image/무한도전/다운로드 (15).jpg")
+        })
+        $("img").mouseout(function(){
+            $(this).attr("src",origin);
+        })
+    </script>
+</body>
+</html>

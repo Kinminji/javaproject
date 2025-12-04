@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img{
+            width: 400px;
+            height: 320px;
+            border: 1px solid gray;
+        }
+        .msg{
+            font-size: 2em;
+            margin: 10px 20px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var img=document.getElementById("img")
+            var msg=document.querySelector(".msg");
+
+            //메세지 배열 출력
+            var msgArr=["점심시간 메뉴","비올때 생각나는 음식","우울할때 좋은 음식","피곤할때 기력회복 음식"];
+            var colorArr=["red","orange","skyblue","green","purple","blue"];
+
+            //1초마다 사진 바뀌게
+            setInterval(function(){
+                //1~10까지의 난수
+                var idx=parseInt(Math.random()*10)+1;
+
+                //이미지가 난수로 변경
+                img.setAttribute("src","../image/무한도전/다운로드 ("+idx+").jpg");
+            },1000);
+
+            //메세지(0.5초)
+            setInterval(function(){
+                var msgidx=parseInt(Math.random()*4)+1;
+
+                msg.innerHTML=msgArr[msgidx];
+
+                //색상랜덤발생
+                var coloridx=parseInt(Math.random()*6)+1;
+
+                msg.style.color=colorArr[coloridx];
+            },500)
+
+        }
+    </script>
+</head>
+<body>
+    <img src="../image/무한도전/다운로드 (1).jpg" alt="" id="img">
+    <div class="msg">메세지 출력...</div>
+</body>
+</html>

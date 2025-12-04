@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 400px;
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption><h3>폼태그 Quiz</h3></caption>
+        <tr>
+            <th>이름</th>
+            <td>
+                <input type="text" id="name">
+            </td>
+        </tr>
+        <tr>
+            <th>자바점수</th>
+            <td>
+                <input type="text" id="java" size="20">
+            </td>
+        </tr>
+        <tr>
+            <th>자바스크립트</th>
+            <td>
+                <input type="text" id="javasc" size="20">
+            </td>
+        </tr>
+        <tr>
+            <th>운전면허</th>
+            <td>
+                <input type="checkbox" id="driver" value="ok">있음
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="button" id="btn1">결과 확인</button>
+            </td>
+        </tr>
+
+        <tr height="200">
+            <td colspan="2" align="center">
+                <div id="out">결과 출력...(이름,자바,js,총점,평균,운전면허)</div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var c=document.getElementById("btn1");
+        
+        c.onclick=function(){
+            var name=document.getElementById("name").value;
+            var java=parseInt(document.getElementById("java").value);
+            var javasc=parseInt(document.getElementById("javasc").value);
+            var check=document.getElementById("driver").checked;
+
+            var tot=java+javasc;
+            var age=tot/2;
+
+            var driver;
+            if(check){
+                driver="있음";
+            } else {
+                driver="없음";
+            }
+
+            if(name.length==0){
+                alert("이름을 입력해주세요.")
+                return;
+            }
+
+            document.getElementById("out").innerHTML="이름: "+name+"<br>"
+            +"Java: "+java+"점<br>"+ "JavaScript: "+javasc+"점<br>"
+            +"총점: "+tot+"점<br>"+"평균: "+age+"점<br>"+ "운전면허: "+driver
+
+            
+        }
+
+    </script>
+</body>
+</html>

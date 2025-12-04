@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>1.아래사진으로 이벤트_사진에 마우스 올리면 5번 이미지로, 마우스 벗어나면 원래 이미지로</h3>
+    <img src="../image/무한도전/다운로드 (1).jpg" alt="" width="200" id="img">
+    <script>
+        var m=document.getElementById("img");
+        var origin=m.src;
+
+        m.onmouseover=function(){
+            m.setAttribute("src","../image/무한도전/다운로드 (5).jpg");
+        }
+        m.onmouseout=function(){
+            m.setAttribute("src",origin);
+        }
+        m.onclick=function(){
+            m.setAttribute("src","../image/무한도전/다운로드 (3).jpg");
+        }
+    </script>
+
+    <h3>2. 연예인 사진 1~20번까지 for문 반복해서 body에 4줄로 출력</h3>
+    <script>
+        for(var i=1;i<13;i++){
+            document.write("<img src='../image/food/"+i+".jpg' width='100px' height='100px'>")
+            if(i%4==0){
+                document.write("<br>")
+            }
+        } 
+    </script>
+
+    <h3>3. 아래 이미지 width 200/ height 220으로 지정후 이미지를 클릭하면 아래 div에 각종 정보 출력</h3>
+    <img src="../image/무한도전/다운로드 (2).jpg" alt="" id="img1">
+    <div id="out"></div>
+    <script>
+        
+        var imag=document.getElementById('img1');
+        var out=document.getElementById('out');
+
+        imag.onclick=function(){
+            var src=imag.getAttribute('src');
+            var w=imag.width;
+            var h=imag.height;
+
+            out.innerHTML="src:"+src+"<br> widht:"+w+"<br> height:"+h;
+        }
+    </script>
+
+</body>
+</html>

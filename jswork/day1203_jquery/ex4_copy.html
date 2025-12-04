@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3 class="a">H3 Tag</h3>
+    <hr>
+    <h3 class="b">H3 class a copy</h3>
+
+    <script>
+        //a에 html로 입력
+        $("h3.a").html("복사할 내용을 여기에 넣기.").append("<img src='../image/무한도전/다운로.jpg'>");
+
+        $("h3").css("cursor","pointer");
+
+        //a를 클릭하면 "복사 완료되었습니다."
+        $("h3.a").click(function(){
+            tag=$(this).html();
+            alert("복사 완료되었습니다.");
+        })
+
+        //b를 클릭하면 붙여넣기 완료
+        $("h3.b").click(function(){
+            // $(this).html(tag);
+            $(this).append(tag); //뒤로 이어서 계속 붙여넣기
+            alert("붙여넣기 완료되었습니다.");
+        })
+    </script>
+</body>
+</html>
