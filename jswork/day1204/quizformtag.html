@@ -22,18 +22,27 @@
                 var chk=$("#chklicense").is(":checked");
                 var brith=$("#mybrith").val();
                 var age=$("input[name=age]:checked").val();
-                var hobby=$("input[name=hobby]:checkbox").each(function(){
-                    $(this).val();
+                var hobby=[];
+                $("input[name=hobby]:checked").each(function(){
+                    hobby.push($(this).val());
                 });
+                var hobbytext=hobby.join(",");
                 var fonts=$("#selfont option:selected").text();
+                var fcolor=$("input[name=fcolor]:checked").val();
 
-                var tot="<h4 style='font-family:"+fonts+"'>"+"입력결과<br>"
+                var tot="<h4>"+"입력결과<br>"
                     +"이름: "+name+"<br>"
                     +"운전면허: "+chk+"<br>"
                     +"생년월일: "+brith+"<br>"
                     +"나이: "+age+"<br>"
-                    +"취미생활: "+hobby+"<br>"
-                    +"글꼴: "+fonts+"</h4>";
+                    +"취미생활: "+hobbytext+"<br>"
+                    +"글꼴: "+fonts+"<br>"
+                    +"폰트컬러: "+fcolor+"</h4>";
+
+                $("#out").css({
+                    "color":fcolor,
+                    "font-family":fonts
+                });    
 
                 $("#out").html(tot);
             })
@@ -69,8 +78,37 @@
             <option>Nanum Myeongjo</option>
             <option>Nanum Pen Script</option>
         </select><br>
+        <b>글꼴 색상</b>
+        <input type="radio" name="fcolor" value="pink">핑크&nbsp;
+        <input type="radio" name="fcolor" value="yellowgreen">연두&nbsp;
+        <input type="radio" name="fcolor" value="skyblue">하늘&nbsp;
+        <input type="radio" name="fcolor" value="orange">오렌지&nbsp;
+        <input type="radio" name="fcolor" value="lightgray">회색&nbsp;
+
+
         <button type="button" id="btn1">결과출력</button>
         <div id="out">결과출력하는곳...</div>
+        
+        <br>
+        <b>이미지 출력</b>
+        <input type="checkbox" name="chkimg" value="3">느낌있는얼굴&nbsp;
+        <input type="checkbox" name="chkimg" value="5">사랑해&nbsp;
+        <input type="checkbox" name="chkimg" value="6">그냥 가 있으면 안돼? 다들?&nbsp;
+        <input type="checkbox" name="chkimg" value="15">웃어?!&nbsp;
+        <br><br>
+        <button type="button" id="btn2">이미지 출력</button>
+        <div id="mini_out"></div>
+
+        <script>
+            $("#btn2").click(function(){
+                var mimg="";
+                $("input[name=chkimg]:checked").each(function(i){
+                    mimg+="<img src='../image/무한도전/다운로드 ("+$(this).val()+").jpg'>"
+                }); 
+                $("#mini_out").html(mimg);
+            })
+            
+        </script>
     </div> 
 </body>
 </html>

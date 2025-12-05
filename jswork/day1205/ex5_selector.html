@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        div.one figure{
+            float: left;
+            cursor: pointer;
+        }
+        div.box{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 1px solid gray;
+            margin: 5px;
+            float: left;
+        }
+        div.result2{
+            border: 2px solid gray;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+    <figure>
+        <img src="../image/jquery/03.png" alt="">
+        <figcaption><b>춤추는 미니언즈</b></figcaption>
+    </figure>
+    <figure>
+        <img src="../image/jquery/04.png" alt="">
+        <figcaption><b>바나나 미니언즈</b></figcaption>
+    </figure>
+    <figure>
+        <img src="../image/jquery/06.png" alt="">
+        <figcaption><b>오리튜브 미니언즈</b></figcaption>
+    </figure>
+    <figure>
+        <img src="../image/jquery/08.png" alt="">
+        <figcaption><b>퍼플 미니언즈</b></figcaption>
+    </figure>
+    </div>
+
+    <div class="result1">
+        <img src="../image/jquery/01.png" alt="">
+        <br>
+        <h3>평범한 미니언즈</h3>
+    </div>
+
+    <hr style="clear: both;">
+
+    <script>
+        //figure에 있는 이미지위에 마우스 올리면 결과출력되게
+        var s=$(".result1>img").attr("src");
+        var t=$(".result1 h3").text();
+
+        $("div.one figure img").hover(function(){
+            var photo=$(this).attr("src");
+            $("div.result1 img").attr("src",photo);
+
+            var title=$(this).siblings("figcaption").children("b").text();
+            $("div.result1 h3").text(title);
+        },function(){
+            $("div.result1 img").attr("src",s);
+            $("div.result1 h3").text(t);
+        });
+    </script>
+
+
+    <div class="two">
+        <div class="box" style="background-color: #eee;"></div>
+            <h3>내일 6:30분 출근</h3>
+            <div class="msg">
+                <span>★★★</span>
+            </div>
+            <div class="box" style="background-color: skyblue;"></div>
+            <h3>오층매점 완오</h3>
+            <div class="msg">
+                <span>★★</span>
+            </div>
+            <div class="box" style="background-color: pink;"></div>
+            <h3>퇴근은 14:30분</h3>
+            <div class="msg">
+                <span>★★★★★</span>
+            </div>
+            <div class="box" style="background-color: yellowgreen;"></div>
+            <h3>총 8.0 근무</h3>
+            <div class="msg">
+                <span>★</span>
+            </div>
+
+            <hr>
+            <div class="result2">
+                <h1>메세지 출력</h1>
+                <h3>별표</h3>
+            </div>
+    </div>
+
+    <script>
+        //배경색 얻어서 result2의 배경으로 출력
+        $("div.two div.box").mouseover(function(){
+            var bg=$(this).css("background-color");
+            $("div.result2").css("background-color",bg);
+
+            $("div.result2 h1").text($(this).next().text());
+            $("div.result2 h3").text($(this).next().next().children().text());
+        })
+        //제목 별표는 각자 자리에 나오게
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        #msg{
+            font-size: 2em;
+            position: absolute;
+            left: 70px;
+            top: 180px;
+        }
+        #img1{
+            position: absolute;
+            left: 350px;
+            top: 150px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn1">Hide</button>
+    <button type="button" id="btn2">Show</button>
+    <button type="button" id="btn3">Toggle</button>
+    <br>
+    <button type="button" id="btn4">SlideUp</button>
+    <button type="button" id="btn5">SlideDown</button>
+    <button type="button" id="btn6">SlideToggle</button>
+    <br>
+    <button type="button" id="btn7">FadeOut</button>
+    <button type="button" id="btn8">FadeIn</button>
+    <button type="button" id="btn9">FadeToggle</button>
+    <button type="button" id="btn10">FadeTo</button>
+    <br>
+
+    <img src="../image/무한도전/다운로드 (11).jpg" alt="" id="img1">
+    <div id="msg">저 언니 조심해야 돼</div>
+
+    <script>
+        $("#btn1").click(function(){
+            $("#msg").hide();
+            $("#img1").hide();
+        })
+        $("#btn2").click(function(){
+            $("#msg").show();
+            $("#img1").show();
+        })
+        $("#btn3").click(function(){
+            $("#msg").toggle();
+            $("#img1").toggle();
+        })
+
+        $("#btn4").click(function(){
+            $("#msg").slideUp('slow');
+            $("#img1").slideUp('slow');
+        })
+        $("#btn5").click(function(){
+            $("#msg").slideDown('fast');
+            $("#img1").slideDown('fast');
+        })
+        $("#btn6").click(function(){
+            $("#msg").slideToggle();
+            $("#img1").slideToggle();
+        })
+
+        $("#btn7").click(function(){
+            $("#msg").fadeOut();
+            $("#img1").fadeOut();
+        })
+        $("#btn8").click(function(){
+            $("#msg").fadeIn();
+            $("#img1").fadeIn();
+        })
+        $("#btn9").click(function(){
+            $("#msg").fadeToggle();
+            $("#img1").fadeToggle();
+        })
+
+        
+        //fadeTo
+        $("#btn10").click(function(){
+            $("#msg").fadeTo(3000,0.5,function(){
+                $("#msg").css("border","10px groove gold");
+            });
+            $("#img1").fadeTo(3000,0.5,function(){
+                $("#img1").css("opacity","1");
+            });
+        })
+    </script>
+
+    <hr>
+    <button type="button" id="btna">투명도 30%</button>
+    <button type="button" id="btnb">투명도 100%</button>
+    <br><br><br>
+
+    <h1 id="opa">이곳에 투명도를 적용해 보세요.</h1>
+
+    <script>
+        $("#btna").click(function(){
+            $("#opa").fadeTo(3000,0.5);
+            })
+        $("#btnb").click(function(){
+            $("#opa").fadeTo(3000,0.5);
+        })
+    </script>
+</body>
+</html>

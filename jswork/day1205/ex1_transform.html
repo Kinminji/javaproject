@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="../image/무한도전/다운로드 (10).jpg" alt="">
+    <img src="../image/무한도전/다운로드 (2).jpg" alt="">
+    <img src="../image/무한도전/다운로드 (12).jpg" alt="">
+    <img src="../image/무한도전/다운로드 (14).jpg" alt="">
+
+    <script>
+        //hover-회전
+        $("img:eq(0)").hover(function(){
+            //45도회전..deg,rad,grad,trun
+            $(this).css("transform","rotate(45deg)"); //양수는 시계방향 
+        },function(){
+            $(this).css("transform","rotate(0)");
+        });
+
+        $("img:eq(1)").hover(function(){
+            //45도회전..deg,rad,grad,trun
+            $(this).css("transform","rotate(-180deg)"); //음수는 반시계반향
+        },function(){
+            $(this).css("transform","rotate(0)");
+        });
+
+        //scale 확대 축소
+        $("img:eq(2)").hover(function(){
+            //45도회전..deg,rad,grad,trun
+            $(this).css("transform","scale(1.5,1.5)"); //가로 세로
+        },function(){
+            $(this).css("transform","scale(1,1)")
+        });
+
+        //translate-양수면 오른쪽으로 이동
+        $("img:eq(3)").hover(function(){
+            //45도회전..deg,rad,grad,trun
+            $(this).css("transform","translate(50px,50px)"); 
+        },function(){
+            $(this).css("transform","translate(0px,0px)")
+        });
+    </script>
+</body>
+</html>

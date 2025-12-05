@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        .a{color: goldenrod;}
+        .b{color: black;}
+        .c{color: green;}
+
+        div.subject>b{
+            font-size: 18pt;
+            cursor: pointer;
+        }
+        div.answer>h5{
+            text-indent: 20px;
+            font-weight: 400;
+        }
+    </style>
+    <script>
+        $(function(){
+            //모든 댓글 숨기기
+            $(".answer").hide();
+            //제목을 클릭하면 그내용에 관한 댓글만 보이기
+            //나머지글에 대한 댓글은 안보이게 처리
+            $(".subject>b").click(function(){
+                $(".answer").fadeOut();
+                $(this).siblings(".answer").fadeIn();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="subject a">
+        <b>Happy</b>
+        <div class="answer">
+            <h5>매일 웃고 싶어요</h5>
+            <h5>걱정 없고 싶어요</h5>
+            <h5>아무나 좀 답을 알려주세요</h5>
+        </div>
+    </div>
+    <div class="subject b">
+        <b>꿈의버스</b>
+        <div class="answer">
+            <h5>저 혹시 꿈을 찾고 있나요</h5>
+            <h5>아니면 접고 있나요</h5>
+            <h5>난 계속 꿈을 꿔요</h5>
+        </div>
+    </div>
+    <div class="subject c">
+        <b>좋아합니다</b>
+        <div class="answer">
+            <h5>좋아합니다</h5>
+            <h5>참으려해봤지만</h5>
+            <h5>더는 안되겠어요</h5>
+        </div>
+    </div>
+</body>
+</html>

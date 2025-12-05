@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Document</title>
+    <style>
+        div.sist{
+            position: absolute;
+            left: 150px;
+            top: 50px;
+            width: 250px;
+            height: 320px;
+            border: 2px solid gray;
+            border-radius: 20px;
+        }
+        ul li{
+            list-style: none;
+        }
+        ul.menu>li{
+            font-size: 1.7em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .submenu>li{
+            font-size: 0.6em;
+            font-weight: lighter;
+        }
+    </style>
+    <script>
+        $(function(){
+            //모든 서브메뉴 숨기기
+            $(".submenu").hide();
+
+            //마우스 올렸을때 본인자식의 메뉴들만 나오게
+            $(".menu > li").click(function(){
+                $(".submenu").fadeOut();
+                $(this).children(".submenu").fadeIn();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="sist">
+        <ul class="menu">
+            <li>
+                File
+                <ul class="submenu">
+                    <li>New File</li>
+                    <li>Save</li>
+                    <li>Open</li>
+                    <li>Rename</li>
+                </ul>
+            </li>
+            <li>
+                Edit
+                <ul class="submenu">
+                    <li>Cancle</li>
+                    <li>Copy</li>
+                    <li>Cut</li>
+                    <li>Search</li>
+                </ul>
+            </li>
+            <li>
+                Help
+                <ul class="submenu">
+                    <li>Start</li>
+                    <li>Version</li>
+                    <li>Download</li>
+                    <li>Release</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
