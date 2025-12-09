@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gamja+Flower&family=Nanum+Myeongjo&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+   `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            font-family: 'Nanum Myeongjo';
+            border: 1px solid gray;
+        }
+        #one{
+            left: 100px;
+            top: 150px;
+        }
+        #two{
+            left: 550px;
+            top: 150px;
+        }
+        #three{
+            left: 1000px;
+            top: 150px;
+        }
+        #result{
+            left: 100px;
+            top: 500px;
+            width: 1200px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            border: 5px solid gray;
+        }
+        button{
+            width: 150px;
+            height: 50px;
+            font-family: 'Nanum Pen Script';
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #three h5:hover{
+            cursor: pointer;
+            background-color: #eee;
+        }
+    </style>
+    <script>
+        $(function(){
+             //one 에 버튼 추가 영화 예매
+             var b="<button type='button' id='btn1' class='btn btn-info'>예매하기</button>";
+             $("#one").append(b);
+
+             //버튼1 이벤트
+             $("#btn1").click(function(){
+                var b2="<button type='button' id='btn2' class='btn btn-warning'>극장선택</button>";
+                b2+="&nbsp;&nbsp;<button type='button' id='btn3' class='btn btn-succese'>영화선택</button>"
+                $("#two").html(b2);
+             });
+
+             //버튼2는 이벤트로 향후에 생겨났으므로 동적이벤트로만 가능
+             $(document).on("click","#btn2",function(){
+                var s="<h5 class='cinema'>롯데시네마 월드타워</h5>";
+                s+="<h5 class='cinema'>롯데시네마 건대</h5>";
+                s+="<h5 class='cinema'>롯데시네마 에비뉴엘</h5>";
+                s+="<h5 class='cinema'>롯데시네마 청량리</h5>";
+                s+="<h5 class='cinema'>롯데시네마 도곡</h5>";
+                s+="<h5 class='cinema'>롯데시네마 용산</h5>";
+                s+="<h5 class='cinema'>롯데시네마 홍대입구</h5>";
+                s+="<h5 class='cinema'>롯데시네마 신림</h5>";
+                s+="<h5 class='cinema'>롯데시네마 합정</h5>";
+
+                $("#three").html(s);
+             });
+             $(document).on("click","#btn3",function(){
+                var s="<h5 class='movie'>주토피아2</h5>";
+                s+="<h5 class='movies'>위키드 포 굿</h5>";
+                s+="<h5 class='movies'>콘크리트 마켓</h5>";
+                s+="<h5 class='movies'>한란</h5>";
+                s+="<h5 class='movies'>국보</h5>";
+                s+="<h5 class='movies'>나우유미씨</h5>";
+                s+="<h5 class='movies'>윗집사람들</h5>";
+                s+="<h5 class='movies'>극장판 주술회전 시부야사변</h5>";
+                s+="<h5 class='movies'>더 런닝 맨</h5>";
+
+                $("#three").html(s);
+             });
+
+
+             //영화관이나 제목 클릭하면 결과 창에 나타나게
+            //  $(document).on("click",".cinema",function(){
+            //     var c=$(this).text();
+            //     $("#result").html("<h5> 극장: "+c+"</h5>");
+            //  })
+            //  $(document).on("click",".movie",function(){
+            //     var m=$(this).text();
+            //     $("#result").html("<h5> 영화: "+m+"</h5>");
+            //  })
+
+            $(document).on("click","#three h5",function(){
+                
+                if($(this).hasClass("cinema")){
+                    cinema='극장: '+$(this).text();
+                }
+                else {
+                    movies='영화: '+$(this).text();
+                }
+                $("#result").html(cinema+"<br>"+movies);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="result"></div>
+</body>
+</html>
