@@ -1,3 +1,5 @@
+<%@page import="mysql_team.TeamDao"%>
+<%@page import="mysql_team.TeamDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<%
+		String num=request.getParameter("num");
+		TeamDao dao=new TeamDao();
+		dao.delteTeam(num);
+		
+		response.sendRedirect("teamlist.jsp");
+	%>
 </body>
 </html>

@@ -1,6 +1,3 @@
-
-<%@page import="mysql_team.TeamDao"%>
-<%@page import="mysql_team.TeamDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,25 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("utf-8"); 
 	
-	String name=request.getParameter("name");
-	String addr=request.getParameter("addr");
-	String marry=request.getParameter("marry");
-	String num=request.getParameter("num");
-	
-	TeamDto dto=new TeamDto();
-	dto.setName(name);
-	dto.setAddr(addr);
-	dto.setMarry(marry);
-	dto.setNum(num);
-	
-	TeamDao dao=new TeamDao();
-	dao.updateTeam(dto);
-	
-	response.sendRedirect("teamlist.jsp");
-	
-	%>
 </body>
 </html>

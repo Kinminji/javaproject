@@ -1,6 +1,5 @@
-
-<%@page import="mysql_team.TeamDao"%>
-<%@page import="mysql_team.TeamDto"%>
+<%@page import="myshop.shopDto"%>
+<%@page import="myshop.shopDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,24 +14,11 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("utf-8"); 
-	
-	String name=request.getParameter("name");
-	String addr=request.getParameter("addr");
-	String marry=request.getParameter("marry");
-	String num=request.getParameter("num");
-	
-	TeamDto dto=new TeamDto();
-	dto.setName(name);
-	dto.setAddr(addr);
-	dto.setMarry(marry);
-	dto.setNum(num);
-	
-	TeamDao dao=new TeamDao();
-	dao.updateTeam(dto);
-	
-	response.sendRedirect("teamlist.jsp");
-	
-	%>
+  String num=request.getParameter("num");
+  shopDao dao=new shopDao();
+  dao.deleteShop(num);
+  
+  response.sendRedirect("shoplist.jsp");
+%>
 </body>
 </html>

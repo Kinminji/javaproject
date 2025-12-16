@@ -1,3 +1,5 @@
+<%@page import="mysql_team.TeamDto"%>
+<%@page import="mysql_team.TeamDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +12,48 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <title>Insert title here</title>
 </head>
+<%
+String num=request.getParameter("num");
+TeamDao dao=new TeamDao();
+TeamDto dto=dao.selectTeam(num);
+%>
 <body>
-	
+	<div style="width: 500px; margin: 50px 50px;">
+		<form action="updateaction.jsp" method="post">
+			<table class="table">
+				<caption align="top"><b>팀 회원 정보 수정</b></caption>
+				<tr>
+					<th width="100px" class="table-success">회원명</th>
+					<td>
+						<input type="text" name="name" class="form-control"
+						required="required" style="width: 300px" value="<%=dto.getName()%>">
+					</td>
+				</tr>
+				<tr>
+					<th width="100px" class="table-success">주소</th>
+					<td>
+						<input type="text" name="addr" class="form-control"
+						required="required" style="width: 300px"value="<%=dto.getAddr()%>">
+					</td>
+				</tr>
+				<tr>
+					<th width="100px" class="table-success">결혼유무</th>
+					<td>
+						<input type="checkbox" name="marry"
+						<%=dto.getMarry().equals("있음")?"checked":""%>>&nbsp;有(있음)
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+					
+					<input type="hidden" name="num" value="<%=num%>">
+						<button type="submit" class="btn btn-warning" >수정</button>
+						<button type="button" class="btn btn-success"
+						onclick="location.href='teamlist.jsp'">목록</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

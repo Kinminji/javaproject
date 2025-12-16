@@ -1,6 +1,4 @@
-
-<%@page import="mysql_team.TeamDao"%>
-<%@page import="mysql_team.TeamDto"%>
+<%@page import="intro.introDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,25 +12,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- 비밀번호가 무조건 a1234면 삭제 삭제후 목록으로 이동
+	틀리면 경고창 띄우기 -->
 	<%
-		request.setCharacterEncoding("utf-8"); 
-	
-	String name=request.getParameter("name");
-	String addr=request.getParameter("addr");
-	String marry=request.getParameter("marry");
+	String pass=request.getParameter("pass");
 	String num=request.getParameter("num");
+	introDao dao=new introDao();
 	
-	TeamDto dto=new TeamDto();
-	dto.setName(name);
-	dto.setAddr(addr);
-	dto.setMarry(marry);
-	dto.setNum(num);
-	
-	TeamDao dao=new TeamDao();
-	dao.updateTeam(dto);
-	
-	response.sendRedirect("teamlist.jsp");
-	
+	if(pass.equals("a1234")){
+		dao.deleteIntro(num);
+		response.sendRedirect("introlist.jsp");
+	}else{%>
+		<script type="text/javascript">
+		alert("비밀번호가 맞지 않습니다.");
+		history.back();
+		</script>
+	<%}
 	%>
 </body>
 </html>

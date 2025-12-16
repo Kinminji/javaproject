@@ -1,6 +1,3 @@
-
-<%@page import="mysql_team.TeamDao"%>
-<%@page import="mysql_team.TeamDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,26 +10,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <title>Insert title here</title>
 </head>
+<%
+String num=request.getParameter("num");
+%>
 <body>
-	<%
-		request.setCharacterEncoding("utf-8"); 
-	
-	String name=request.getParameter("name");
-	String addr=request.getParameter("addr");
-	String marry=request.getParameter("marry");
-	String num=request.getParameter("num");
-	
-	TeamDto dto=new TeamDto();
-	dto.setName(name);
-	dto.setAddr(addr);
-	dto.setMarry(marry);
-	dto.setNum(num);
-	
-	TeamDao dao=new TeamDao();
-	dao.updateTeam(dto);
-	
-	response.sendRedirect("teamlist.jsp");
-	
-	%>
+	<div>
+		<form action="deleteaction.jsp" method="post">
+			<table>
+				<tr>
+					<td>
+						<b>삭제에 필요한 <br> 비밀번호를 입력해주세요. </b>
+						
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

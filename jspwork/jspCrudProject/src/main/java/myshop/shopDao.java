@@ -1,29 +1,31 @@
-package mysql_team;
+package myshop;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Vector;
 
 import mysql.DBConnect;
 
-public class TeamDao {
+public class shopDao {
 	DBConnect db=new DBConnect();
 	
 	//insert
-	public void insertMyteam(TeamDto dto) {
+	public void insertShop(shopDto dto) {
 		Connection conn=db.getDbConnect();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into myteam values(null,?,?,?,now())";
+		String sql="insert into myshop(sangpum,photo,price,ipgoday,writeday) values(?,?,?,?,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getName());
-			pstmt.setString(2, dto.getAddr());
-			pstmt.setString(3, dto.getMarry());
+			pstmt.setString(1, dto.getSangpum());
+			pstmt.setString(2, dto.getPhoto());
+			pstmt.setInt(3, dto.getPrice());
+			pstmt.setString(4, dto.getIpgoday());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -33,30 +35,32 @@ public class TeamDao {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	//전체목록
 	
-	//select
-	public Vector<TeamDto> getAllDate(){
-		Vector<TeamDto> list=new Vector<TeamDto>();
+	public List<shopDto> selectShop(){
+		List<shopDto> list=new Vector<shopDto>();
 		
 		Connection conn=db.getDbConnect();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from myteam order by num";
+		String sql="select * from myshop order by num";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				TeamDto dto=new TeamDto();
+				shopDto dto=new shopDto();
 				dto.setNum(rs.getString("num"));
-				dto.setName(rs.getString("name"));
-				dto.setAddr(rs.getString("addr"));
-				dto.setMarry(rs.getString("marry"));
-				dto.setGaipday(rs.getTimestamp("gaipday"));
+				dto.setSangpum(rs.getString("sangpum"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIpgoday(rs.getString("ipgoday"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
 				
 				list.add(dto);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,35 +71,17 @@ public class TeamDao {
 		
 		return list;
 	}
-	//delete
-	public void delteTeam(String num) {
-		Connection conn=db.getDbConnect();
-		PreparedStatement pstmt=null;
-		
-		String sql="delete from myteam where num=?";
-		
-		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, num);
-			
-			pstmt.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			db.dbClose(pstmt, conn);
-		}
-	}
 	
-	//one select
-	public TeamDto selectTeam(String num) {
-		TeamDto dto=new TeamDto();
+	//하나의목록
+	
+	public shopDto oneselectShop(String num){
+		shopDto dto=new shopDto();
 		
 		Connection conn=db.getDbConnect();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from myteam where num=?";
+		String sql="select * from myshop where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -104,11 +90,14 @@ public class TeamDao {
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
+
 				dto.setNum(rs.getString("num"));
-				dto.setName(rs.getString("name"));
-				dto.setAddr(rs.getString("addr"));
-				dto.setMarry(rs.getString("marry"));
-				dto.setGaipday(rs.getTimestamp("gaipday"));
+				dto.setSangpum(rs.getString("sangpum"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIpgoday(rs.getString("ipgoday"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -120,24 +109,25 @@ public class TeamDao {
 		return dto;
 	}
 	
-	//update
-	public void updateTeam(TeamDto dto) {
+	//delete
+	
+	public void deleteShop(String num) {
 		Connection conn=db.getDbConnect();
 		PreparedStatement pstmt=null;
 		
-		String sql="uqdate myteam set name=?, addr=?, marry=? where num=?";
+		String sql="delete from myshop where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getName());
-			pstmt.setString(2, dto.getAddr());
-			pstmt.setString(3, dto.getMarry());
-			pstmt.setString(4, dto.getNum());
+			pstmt.setString(1, num);
 			
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
 		}
 	}
+	
 }

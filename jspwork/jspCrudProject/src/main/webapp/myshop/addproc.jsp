@@ -1,6 +1,6 @@
-
-<%@page import="mysql_team.TeamDao"%>
-<%@page import="mysql_team.TeamDto"%>
+<%@page import="java.util.List"%>
+<%@page import="myshop.shopDto"%>
+<%@page import="myshop.shopDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,24 +15,24 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("utf-8"); 
+	request.setCharacterEncoding("utf-8");
 	
-	String name=request.getParameter("name");
-	String addr=request.getParameter("addr");
-	String marry=request.getParameter("marry");
-	String num=request.getParameter("num");
+	String sangpum=request.getParameter("sangpum");
+	String photo=request.getParameter("photo");
+	int price=Integer.parseInt(request.getParameter("price"));
+	String ipgoday=request.getParameter("ipgoday");
 	
-	TeamDto dto=new TeamDto();
-	dto.setName(name);
-	dto.setAddr(addr);
-	dto.setMarry(marry);
-	dto.setNum(num);
+	shopDto dto=new shopDto();
+
+	dto.setSangpum(sangpum);
+	dto.setPhoto(photo);
+	dto.setPrice(price);
+	dto.setIpgoday(ipgoday);
 	
-	TeamDao dao=new TeamDao();
-	dao.updateTeam(dto);
+	shopDao dao=new shopDao();
+	dao.insertShop(dto);
 	
-	response.sendRedirect("teamlist.jsp");
-	
+	response.sendRedirect("shoplist.jsp");
 	%>
 </body>
 </html>
