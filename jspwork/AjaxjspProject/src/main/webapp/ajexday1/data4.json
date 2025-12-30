@@ -1,0 +1,5 @@
+[
+	{"name":"kim","hobby":["1","2","3"],"addr":"seoul"},
+	{"name":"kim","hobby":["1","2","3"],"addr":"seoul","hp":"000-000-000"},
+	{"name":"kim","hobby":["1","2","3"],"addr":"seoul","hp":"000-000-000"}
+]

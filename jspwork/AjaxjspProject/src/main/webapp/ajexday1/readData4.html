@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gamja+Flower&family=Nanum+Myeongjo&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+		<button type="button" class="btn btn-secondary" id="btn1">data.xml 읽기</button>
+		<button type="button" class="btn btn-warning" id="btn2">data.json 읽기</button>
+	</div>
+	<div id="out"></div>
+	
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+			var s="";
+			$.ajax({
+				type:"get",
+				url:"data4.xml",
+				dataType:"xml",
+				success:function(data){
+					
+					$(data).find("sawon").each(function(i,ele){
+						var e=$(ele);
+						
+						s+="인덱스: "+i+"<br>";
+						s+="사원번호: "+e.attr("no")+"<br>";
+						s+="부서: "+e.find("buseo").text()+"<br>";
+						s+="급여: "+e.find("pay").text()+"<br>";
+						s+="수당: "+e.find("pay").attr("sudang")+"<br>";
+						s+="---------------------------------------------<br>"
+					});
+					$("#out").html(s);
+				}
+			});
+		});
+		
+		$("#btn2").click(function(){
+			var s="";
+			$.ajax({
+				type:"get",
+				url:"data4.json",
+				dataType:"json",
+				success:function(data){
+					$.each(data,function(i,ele){
+						s+="idx: "+i+"<br>";
+						s+="name: "+ele.name+"<br>";
+						s+="addr: "+ele.addr+"<br>";
+						s+="hp: "+(ele.hp==null?"no":ele.hp)+"<br>";
+						//s+="hobby: "+(ele.hobby==null?"no":ele.hobby)+"<br>";
+						s+="취미: ";
+						if(ele.hobby==null){
+							s+="취미없음<br>";
+						}else{
+							$.each(ele.hobby,function(idx,h){
+								s+="["+h+"]";
+							});
+							s+="<br>";
+						}
+					});
+					$("#out").html(s);
+				}
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gamja+Flower&family=Nanum+Myeongjo&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<title>Insert title here</title>
+<style type="text/css">
+	#header{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.calendar {
+		width: 420px;
+	}
+	.calendar th, .calendar td {
+		width: 60px;
+		height: 60px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.calendar td:hover {
+		background-color: #f0f0f0;
+	}
+	.day{
+		text-align: center;
+	}
+	.day-num{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 12px;
+	}
+	.today .day-num {
+		border: 1px solid #f0f0f0;
+	}
+	.select {
+		background-color: #f0f0f0; !important;
+	}
+	.todo-box {
+		width: 300px;
+	}
+	#yearMonth{
+		flex: 1;
+		text-align: center;
+		margin: 0;
+	}
+	#popup{
+		position: fixed;
+		top: 200px;
+		left: 50px;
+		width: 250px;
+		height: 200px;
+		background: rgba(255,255,255,0.7);
+		backdrop-filter: blur(3px);
+		z-index: 1000;
+	}
+	#addtodo{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background: #eee;
+		border-radius: 10px;
+		padding: 20px;
+		transform: translate(-50%, -50%);
+		width: 300px;
+	}
+</style>
+<script type="text/javascript">
+$(function(){
+	
+	$("#popup").hide();
+	
+	
+	var today=new Date();
+	var year=today.getFullYear();
+	var month=today.getMonth();
+	
+	var todos={};
+	
+	function renderCalendar(){
+		$("#yearMonth").text(year+"년"+(month+1)+"월");
+		var firstDay=new Date(year,month,1).getDay();
+		var lastDate=new Date(year,month+1,0).getDate();
+		
+		var html="<tr>";
+		var cnt=0;
+		
+		for(var i=0;i<firstDay;i++){
+			html+="<td></td>";
+			cnt++;
+		}
+		
+		for(var j=1;j<=lastDate;j++){
+			var dataStr=year+"-"+String(month+1).padStart(2,'0')+"-"+String(j).padStart(2,'0');
+			var cls="";
+			
+			if(j===today.getDate() && month===today.getMonth() && year===today.getFullYear()){
+				cls="today";
+			}
+			
+			html+=`<td class="day ${cls}" data-date="${dataStr}"><span class="day-num">${j}</span></td>`;
+			cnt++;;
+			
+			if(cnt % 7==0)html +="</tr><tr>";
+		}
+		html += "</tr>";
+		$("#calendarBody").html(html);
+	}
+	
+	renderCalendar();
+	
+	// 이전/다음 달
+	$("#btnleft").click(function(){
+		month--;
+		if(month < 0){ month=11; year--; }
+		renderCalendar();
+	});
+	$("#btnright").click(function(){
+		month++;
+		if(month > 11){ month=0; year++; }
+		renderCalendar();
+	});
+	
+	//팝업창
+	$(document).on("click",".day",function(){
+		
+		$(".day").removeClass("select");
+		$(this).addClass("select");
+		
+		var date=$(this).data("date");
+		$("#selectDate").text(date);
+		
+		$("#popup").fadeIn(200);
+	});
+	
+	$("#popup").click(function(e){
+		if(e.target.id === "popup"){
+			$(this).fadeOut(200);
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div style="margin: 50px;">
+		<!-- 달력 -->
+		<div class="calendar">
+			<div id="header">
+				<button type="button" class="btn btn-outline-secondary btn-sm" id="btnleft">
+					<i class="bi bi-caret-left"></i>
+				</button>
+				<h4 id="yearMonth"></h4>
+				<button type="button" class="btn btn-outline-secondary btn-sm" id="btnright">
+					<i class="bi bi-caret-right"></i>
+				</button>
+			</div>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+					</tr>
+				</thead>
+				<tbody id="calendarBody"></tbody>
+			</table>
+		</div>
+		
+		<!-- todo -->
+		<div id="popup" style="width: 450px;">
+			<div id="addtodo">
+				<input type="text" id="texttodo" class="form-control" placeholder="한줄 일기 입력">
+			</div>
+			<div class="text-end">
+				<button type="button" id="insert" class="btn btn-light">저장</button>
+				<button type="button" id="update" class="btn btn-light">수정</button>
+				<button type="button" id="delete" class="btn btn-light">삭제</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
