@@ -50,6 +50,8 @@
 			})
 		})
 		
+		
+		//삭제
 		$(document).on("click",".del",function(){
 			var idx=$(this).data("idx");
 			
@@ -61,10 +63,59 @@
 				dataType:"html",
 				data:{"idx":idx},
 				success:function(){
+					alert("삭제되었습니다");
 					list();
 				}
 			})
 		})
+		
+		
+		//수정 댓글 창
+		$("div.uform").hide();
+		
+		//댓글 버튼 누르면 댓글창 보이게
+		$(document).on("click",".up",function(){
+			$("div.aform").hide();
+			$("div.uform").show();
+			
+			var idx=$(this).data("idx");
+			//alert(idx);
+			$("#idx").val(idx);
+			
+			$.ajax({
+				type:"get",
+				dataType:"json",
+				url:"../myboardAnswer/dtoAnswer.jsp",
+				data:{"idx":idx},
+				success:function(res){
+					$("#idx").val(res.idx);
+					$("#unickname").val(res.nickname);
+					$("#ucomment").val(res.comment);
+				}
+			})
+		})
+		
+		$("#ubtnSend").click(function(){
+			var idx=$("#idx").val();
+			var nickname=$("#unickname").val();
+			var comment=$("#ucomment").val();
+			
+			//alert(nickname+","+comment);
+			
+			$.ajax({
+				type:"post",
+				url:"../myboardAnswer/updateAnswer.jsp",
+				dataType:"html",
+				data:{"idx":idx,"nickname":nickname,"comment":comment},
+				success:function(){
+					list();
+					
+					$("div.uform").hide();
+					$("div.aform").show();
+				}
+			})
+		})
+		
 	})
 	
 	function list(){
@@ -83,7 +134,7 @@
 					var s="";
 					$.each(res,function(idx,item){
 						s+="<div style='font-size:0.9em;'>"+item.nickname+":"+item.comment;
-						s+="<i class='bi bi-pencil-square' style='margin:5px; cursor:pointer;'></i>";
+						s+="<i class='bi bi-pencil-square up' style='margin:5px; cursor:pointer;'data-idx='"+item.idx+"'></i>";
 						s+="<i class='bi bi-trash2 del' style='cursor:pointer;' data-idx='"+item.idx+"'></i>";
 						s+="<span class='aday' style='font-size:0.8em; color:gray; float:right;'>"+item.writeday+"</span>";
 						s+="</div>";
@@ -136,12 +187,23 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 						댓글목록...
 					</div>
 					
+					<!-- 입력폼 -->
 					<div class="aform" style="display: flex;">
 						<input type="text" id="nickname" class="form-control" style="width: 120px; margin-right: 5px;"
 						placeholder="닉네임">
 						<input type="text" id="comment" class="form-control" style="width: 250px; margin-right: 5px;""
 						placeholder="입력">
 						<button type="button" id="btnSend" class="btn btn-secondary">저장</button>
+					</div>
+					
+					<!-- 수정폼 -->
+					<div class="uform" style="display: flex;">
+						<input type="hidden" id="idx">
+						<input type="text" id="unickname" class="form-control" style="width: 120px; margin-right: 5px;"
+						placeholder="닉네임">
+						<input type="text" id="ucomment" class="form-control" style="width: 250px; margin-right: 5px;""
+						placeholder="수정 댓글 입력">
+						<button type="button" id="ubtnSend" class="btn btn-secondary">수정</button>
 					</div>
 				</td>
 			</tr>
