@@ -11,13 +11,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
-	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
-	%>
-
+	<div class="logform" style="margin: 50px; width: 250px;" >
+		<h3>회원 로그인</h3>
+		<form action="loginAction.jsp" method="post">
+			<input type="text" name="id" class="form-control" style="width: 200px; margin-bottom:5px; " placeholder="ID 입력" required="required">
+			<input type="password" name="password" class="form-control" style="width: 200px;" placeholder="Password" required="required">
+			<br>
+			<button type="sumbit" class="btn btn-success" style="width: 200px;">로그인</button>
+			<br>
+			<input type="checkbox" name="saveok">아이디저장
+		</form>
+	</div>
 </body>
 </html>

@@ -12,12 +12,19 @@
 </head>
 <body>
 	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
-	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
-	%>
-
+  request.setCharacterEncoding("utf-8");
+%>
+<jsp:useBean id="dto" class="reboard.ReboardDto"/>
+<jsp:useBean id="dao" class="reboard.ReboardDao"/>
+<jsp:setProperty property="*" name="dto"/>
+<%
+ //insert
+ dao.updateReboard(dto);
+//페이지 번호 읽기
+String currentPage=request.getParameter("currentPage");
+	 
+ //이동
+ response.sendRedirect("detailPage.jsp?num="+dto.getNum()+"&currentPage="+currentPage);
+%>
 </body>
 </html>

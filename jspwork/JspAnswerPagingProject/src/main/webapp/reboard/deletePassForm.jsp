@@ -10,14 +10,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <title>Insert title here</title>
 </head>
+<%
+String num=request.getParameter("num");
+String currentPage=request.getParameter("currentPage");
+%>
 <body>
-	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
+	<div style="margin: 50px; width: 300px;">
+	<form action="deletePassAction.jsp" method="post">
 	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
-	%>
-
+	<!-- hidden -->
+	<input type="hidden" name="num" value="<%=num%>">
+	<input type="hidden" name="currentPage" value="<%=currentPage%>">
+	
+		<table class="table table-bordered">
+			<tr>
+				<td class="input-group">
+					<input type="password" name="pass" class="form-control"
+					style="width: 200px;" placeholder="비밀번호 입력">&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="btn btn-danger">삭제</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
 </body>
 </html>

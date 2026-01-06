@@ -1,3 +1,6 @@
+<%@page import="java.io.File"%>
+<%@page import="memguest.memguestDto"%>
+<%@page import="memguest.memguestDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,14 +13,31 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <title>Insert title here</title>
 </head>
-<body>
-	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
-	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
-	%>
+<%
+	String num=request.getParameter("num");
+String currentPage=request.getParameter("currentPage");
 
+if (currentPage == null || currentPage.equals("null")) {
+    currentPage = "1";
+}
+
+memguestDao dao=new memguestDao();
+
+//num에 해당하는 photo값 얻기
+String photo=dao.getData(num).getPhoto();
+//save의 실제 경로
+String realPath=getServletContext().getRealPath("/save");
+
+//파일생성
+File file=new File(realPath+"\\"+photo);
+//해당폴더에서 파일 삭제
+file.delete();
+//db삭제
+dao.deletememguest(num);
+
+response.sendRedirect("guestList.jsp?currentPage="+currentPage);
+%>
+<body>
+	
 </body>
 </html>

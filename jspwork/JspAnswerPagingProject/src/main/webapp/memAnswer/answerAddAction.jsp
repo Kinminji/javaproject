@@ -1,3 +1,5 @@
+<%@page import="MemAnswer.answerDto"%>
+<%@page import="MemAnswer.answerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,12 +14,25 @@
 </head>
 <body>
 	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
 	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
+	request.setCharacterEncoding("utf-8");
+	
+	
+	String num=request.getParameter("num");
+	String myid = (String)session.getAttribute("idok");
+	String memo=request.getParameter("memo");
+	String currentPage = request.getParameter("currentPage");
+	
+	answerDto dto=new answerDto();
+	dto.setNum(num);
+	dto.setMyid(myid);
+	dto.setMemo(memo);
+	
+	answerDao dao=new answerDao();
+	dao.insertAnswer(dto);
+	
+	response.sendRedirect("../memguest/guestList.jsp?currentPage="+currentPage);
+	
 	%>
-
 </body>
 </html>

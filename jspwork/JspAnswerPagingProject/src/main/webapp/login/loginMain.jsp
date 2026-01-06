@@ -12,12 +12,13 @@
 </head>
 <body>
 	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
+	String loginok=(String)session.getAttribute("loginok");
 	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
+	if(loginok==null){%>
+		<jsp:include page="loginForm.jsp"/>
+	<%}else{%>
+		<jsp:include page="logoutForm.jsp"/>
+	<%}
 	%>
-
 </body>
 </html>

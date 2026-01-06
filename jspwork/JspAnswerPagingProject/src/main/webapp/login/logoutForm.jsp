@@ -1,3 +1,4 @@
+<%@page import="jspLogin.loginDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,12 +13,20 @@
 </head>
 <body>
 	<%
-	//로그인에 대한 세션값 지우기
-	session.removeAttribute("loginok");
-	
-	//로그인폼으로 이동..로그인메인으로 보내기
-	response.sendRedirect("loginMain.jsp");
+	//세션에 저장한 아이디 읽기
+	String myid=(String)session.getAttribute("idok");
+	//아이디에 해당하는 이름 가져오기
+	loginDao dao=new loginDao();
+	String name=dao.getName(myid);
 	%>
-
+	
+	<div style="margin: 50px;">
+	<b><%=name %>님이 로그인 하셨습니다.</b>&nbsp;&nbsp;&nbsp;&nbsp;
+	<button type="button" class="btn btn-danger" onclick="location.href='logoutAction.jsp'">로그아웃</button>
+	<br><br>
+	<img alt="" src="../image/무한도전/다운로.jpg">
+	<br><br>
+	<button type="button" class="btn btn-info" onclick="location.href='../memguest/guestList.jsp'">회원방명록</button>
+	</div>
 </body>
 </html>
